@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash Hungama</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#070816;
+color:white;
+padding:18px;
+padding-bottom:100px;
+overflow-x:hidden;
+}
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-2;
+background:
+linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+background-size:40px 40px;
+}
+
+.glow{
+position:fixed;
+width:300px;
+height:300px;
+background:#7a5cff;
+filter:blur(120px);
+opacity:0.25;
+top:-100px;
+left:-100px;
+z-index:-1;
+}
+
+.glow2{
+position:fixed;
+width:300px;
+height:300px;
+background:#00ffd5;
+filter:blur(120px);
+opacity:0.18;
+bottom:-100px;
+right:-100px;
+z-index:-1;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:10px;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+background:linear-gradient(90deg,#8a5cff,#00ffd5);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.profile{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#1f2036;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+}
+
+.balance{
+margin-top:28px;
+padding:28px;
+border-radius:28px;
+background:linear-gradient(135deg,#7a5cff,#00b8ff);
+box-shadow:0 0 30px rgba(122,92,255,0.45);
+}
+
+.balance p{
+opacity:0.8;
+font-size:14px;
+}
+
+.balance h1{
+font-size:42px;
+margin-top:8px;
+}
+
+.actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:20px;
+}
+
+.btn{
+padding:18px;
+border:none;
+border-radius:22px;
+background:#17182b;
+color:white;
+font-size:15px;
+font-weight:600;
+}
+
+.card{
+margin-top:22px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+backdrop-filter:blur(14px);
+padding:22px;
+border-radius:26px;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+.refbox{
+background:#0f1020;
+padding:14px;
+border-radius:14px;
+font-size:13px;
+word-break:break-all;
+margin-top:12px;
+}
+
+.claim{
+margin-top:18px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:linear-gradient(90deg,#7a5cff,#00ffd5);
+color:white;
+font-weight:700;
+font-size:16px;
+}
+
+.list{
+margin-top:10px;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+margin-top:14px;
+padding-bottom:12px;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.green{
+color:#00ff9d;
+font-weight:600;
+}
+
+.bottom{
+position:fixed;
+bottom:15px;
+left:15px;
+right:15px;
+background:rgba(20,20,35,0.9);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.06);
+padding:16px;
+border-radius:26px;
+display:flex;
+justify-content:space-around;
+}
+
+.nav{
+text-align:center;
+font-size:13px;
+color:#aaa;
+}
+
+.active{
+color:#8a5cff;
+font-weight:700;
+}
+
+.popup{
+position:fixed;
+top:20px;
+right:20px;
+padding:14px 18px;
+background:#16172c;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:18px;
+display:none;
+animation:fade 4s linear;
+}
+
+@keyframes fade{
+0%{opacity:0;transform:translateY(-20px);}
+10%{opacity:1;}
+90%{opacity:1;}
+100%{opacity:0;transform:translateY(-20px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<div class="popup" id="popup">
+Rahul earned ₹50
+</div>
+
+<div class="top">
+<div class="logo">Cash Hungama</div>
+<div class="profile">👤</div>
+</div>
+
+<div class="balance">
+<p>Total Balance</p>
+<h1 id="money">₹100</h1>
+</div>
+
+<div class="actions">
+
+<button class="btn" onclick="claimBonus()">
+🎁 Daily Bonus
+</button>
+
+<button class="btn">
+💸 Withdraw
+</button>
+
+<button class="btn">
+👥 Invite
+</button>
+
+<button class="btn">
+🔥 Top Users
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>👥 Refer & Earn</h3>
+
+<p>
+Invite friends and earn ₹25 instantly for every successful referral.
+</p>
+
+<div class="refbox" id="ref">
+https://t.me/cashhungama_bot?start=7282
+</div>
+
+<button class="claim" onclick="copyRef()">
+COPY REFERRAL LINK
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>💰 Recent Earnings</h3>
+
+<div class="list">
+
+<div class="item">
+<span>Daily Bonus</span>
+<span class="green">+₹20</span>
+</div>
+
+<div class="item">
+<span>Referral Reward</span>
+<span class="green">+₹25</span>
+</div>
+
+<div class="item">
+<span>Task Reward</span>
+<span class="green">+₹15</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom">
+
+<div class="nav active">
+🏠<br>Home
+</div>
+
+<div class="nav">
+💸<br>Earn
+</div>
+
+<div class="nav">
+👥<br>Refer
+</div>
+
+<div class="nav">
+⚙️<br>Profile
+</div>
+
+</div>
+
+<script>
+
+let balance = 100;
+
+function claimBonus(){
+
+balance += 20;
+
+document.getElementById("money").innerText = "₹" + balance;
+
+alert("₹20 Bonus Added!");
+
+}
+
+function copyRef(){
+
+let text = document.getElementById("ref").innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Referral Link Copied!");
+
+}
+
+let names = [
+"Rahul",
+"Aman",
+"Sahil",
+"Priya",
+"Rohit",
+"Karan",
+"Neha"
+];
+
+setInterval(()=>{
+
+let popup = document.getElementById("popup");
+
+let name = names[Math.floor(Math.random()*names.length)];
+
+let amount = Math.floor(Math.random()*90)+10;
+
+popup.innerText = name + " earned ₹" + amount;
+
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
+},3500);
+
+},5000);
+
+</script>
+
+</body>
+  </html>
