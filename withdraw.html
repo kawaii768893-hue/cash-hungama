@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Withdraw - Cash Hungama</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#070816;
+color:white;
+padding:20px;
+overflow:hidden;
+}
+
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-2;
+}
+
+.glow{
+position:fixed;
+width:300px;
+height:300px;
+background:#7a5cff;
+filter:blur(120px);
+opacity:0.25;
+top:-100px;
+left:-100px;
+z-index:-1;
+}
+
+.glow2{
+position:fixed;
+width:300px;
+height:300px;
+background:#00ffd5;
+filter:blur(120px);
+opacity:0.18;
+bottom:-100px;
+right:-100px;
+z-index:-1;
+}
+
+.title{
+font-size:32px;
+font-weight:700;
+margin-top:20px;
+background:linear-gradient(90deg,#8a5cff,#00ffd5);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.card{
+margin-top:30px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:28px;
+}
+
+.balance{
+font-size:42px;
+font-weight:700;
+margin-top:10px;
+}
+
+label{
+display:block;
+margin-top:20px;
+margin-bottom:10px;
+color:#bbb;
+}
+
+input{
+width:100%;
+padding:16px;
+border:none;
+outline:none;
+border-radius:18px;
+background:#151629;
+color:white;
+font-size:15px;
+}
+
+button{
+width:100%;
+margin-top:28px;
+padding:18px;
+border:none;
+border-radius:20px;
+background:linear-gradient(90deg,#7a5cff,#00ffd5);
+color:white;
+font-size:17px;
+font-weight:700;
+}
+
+.note{
+margin-top:18px;
+font-size:13px;
+color:#999;
+line-height:1.7;
+}
+
+.popup{
+position:fixed;
+top:25px;
+right:20px;
+background:#151629;
+padding:16px 20px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+display:none;
+animation:fade 3s linear;
+}
+
+@keyframes fade{
+0%{opacity:0;transform:translateY(-20px);}
+10%{opacity:1;}
+90%{opacity:1;}
+100%{opacity:0;transform:translateY(-20px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<div class="popup" id="popup">
+Withdraw Request Submitted
+</div>
+
+<div class="title">
+Withdraw 💸
+</div>
+
+<div class="card">
+
+<p>Available Balance</p>
+<div class="balance">₹245</div>
+
+<label>UPI ID</label>
+<input type="text" placeholder="example@upi">
+
+<label>Withdraw Amount</label>
+<input type="number" placeholder="Minimum ₹100">
+
+<button onclick="submitWithdraw()">
+REQUEST WITHDRAW
+</button>
+
+<div class="note">
+• Minimum Withdraw ₹100<br>
+• Withdraw takes 5-30 minutes<br>
+• Invalid UPI may reject payment
+</div>
+
+</div>
+
+<script>
+
+function submitWithdraw(){
+
+let popup = document.getElementById("popup");
+
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
+},3000);
+
+}
+
+</script>
+
+</body>
+  </html>
