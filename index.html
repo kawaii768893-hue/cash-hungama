@@ -32,14 +32,11 @@ background:#eef3f9;
 border-radius:38px;
 padding:22px;
 position:relative;
+overflow:hidden;
 
 box-shadow:
-12px 12px 25px rgba(0,0,0,0.08),
--12px -12px 25px rgba(255,255,255,0.95);
-
-border:1px solid rgba(255,255,255,0.7);
-
-overflow:hidden;
+12px 12px 25px rgba(0,0,0,.08),
+-12px -12px 25px rgba(255,255,255,.95);
 }
 
 .balance-card::before{
@@ -49,7 +46,7 @@ top:-80px;
 left:-60px;
 width:240px;
 height:160px;
-background:rgba(255,255,255,0.55);
+background:rgba(255,255,255,.5);
 transform:rotate(-15deg);
 border-radius:40px;
 }
@@ -73,23 +70,20 @@ position:relative;
 z-index:2;
 
 box-shadow:
-inset 6px 6px 14px rgba(0,0,0,0.06),
-inset -6px -6px 14px rgba(255,255,255,0.95);
+inset 6px 6px 14px rgba(0,0,0,.06),
+inset -6px -6px 14px rgba(255,255,255,.95);
 }
 
 .balance{
 font-size:72px;
 font-weight:800;
 color:#14213d;
-text-shadow:2px 2px 4px rgba(0,0,0,0.08);
 }
 
 .top-row{
 display:flex;
 gap:14px;
 margin-top:18px;
-position:relative;
-z-index:2;
 }
 
 .top-btn{
@@ -102,8 +96,8 @@ font-size:14px;
 font-weight:700;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,0.08),
--5px -5px 12px rgba(255,255,255,0.95);
+5px 5px 12px rgba(0,0,0,.08),
+-5px -5px 12px rgba(255,255,255,.95);
 }
 
 .blue{
@@ -113,109 +107,8 @@ color:#2563eb;
 .red{
 color:#ef4444;
 }
-/* ===== PAGE LOAD ===== */
 
-body{
-animation:fadeIn 0.8s ease;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* ===== FLOAT EFFECT ===== */
-
-.balance-card,
-.stat-card,
-.refer-card{
-animation:floatCard 4s ease-in-out infinite;
-}
-
-@keyframes floatCard{
-0%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-6px);
-}
-100%{
-transform:translateY(0px);
-}
-}
-
-/* ===== BUTTON PRESS ===== */
-
-.action-btn,
-.top-btn,
-.copy-btn{
-transition:0.25s;
-cursor:pointer;
-}
-
-.action-btn:active,
-.top-btn:active,
-.copy-btn:active{
-transform:scale(0.92);
-}
-
-/* ===== GLOW HOVER ===== */
-
-.action-btn:hover{
-box-shadow:
-0 0 20px rgba(0,119,255,.18),
-5px 5px 12px rgba(0,0,0,0.08),
--5px -5px 12px rgba(255,255,255,0.95);
-}
-
-/* ===== SHINE EFFECT ===== */
-
-.balance-card::after{
-content:'';
-position:absolute;
-top:0;
-left:-120%;
-width:60%;
-height:100%;
-background:rgba(255,255,255,0.35);
-transform:skewX(-20deg);
-
-animation:shine 4s infinite;
-}
-
-@keyframes shine{
-0%{
-left:-120%;
-}
-100%{
-left:140%;
-}
-}
-
-/* ===== POPUP ANIMATION ===== */
-
-.copy-btn{
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.08);
-}
-100%{
-transform:scale(1);
-}
-  }
-/* ===== ACTION BUTTONS ===== */
+/* ===== ACTIONS ===== */
 
 .action-box{
 margin-top:22px;
@@ -224,9 +117,11 @@ padding:12px;
 border-radius:28px;
 
 box-shadow:
-8px 8px 18px rgba(0,0,0,0.08),
--8px -8px 18px rgba(255,255,255,0.95);
+8px 8px 18px rgba(0,0,0,.08),
+-8px -8px 18px rgba(255,255,255,.95);
+}
 
+.actions{
 display:flex;
 gap:12px;
 }
@@ -239,11 +134,11 @@ border-radius:22px;
 text-align:center;
 font-size:15px;
 font-weight:800;
-color:#1e293b;
+cursor:pointer;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,0.08),
--5px -5px 12px rgba(255,255,255,0.95);
+5px 5px 12px rgba(0,0,0,.08),
+-5px -5px 12px rgba(255,255,255,.95);
 }
 
 /* ===== STATS ===== */
@@ -262,8 +157,8 @@ border-radius:30px;
 text-align:center;
 
 box-shadow:
-10px 10px 22px rgba(0,0,0,0.08),
--10px -10px 22px rgba(255,255,255,0.95);
+10px 10px 22px rgba(0,0,0,.08),
+-10px -10px 22px rgba(255,255,255,.95);
 }
 
 .icon{
@@ -279,8 +174,8 @@ font-size:30px;
 background:#eef3f9;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,0.08),
--5px -5px 12px rgba(255,255,255,0.95);
+5px 5px 12px rgba(0,0,0,.08),
+-5px -5px 12px rgba(255,255,255,.95);
 }
 
 .stat-title{
@@ -305,8 +200,8 @@ padding:26px;
 border-radius:34px;
 
 box-shadow:
-10px 10px 22px rgba(0,0,0,0.08),
--10px -10px 22px rgba(255,255,255,0.95);
+10px 10px 22px rgba(0,0,0,.08),
+-10px -10px 22px rgba(255,255,255,.95);
 }
 
 .refer-title{
@@ -334,8 +229,8 @@ align-items:center;
 gap:10px;
 
 box-shadow:
-inset 5px 5px 10px rgba(0,0,0,0.06),
-inset -5px -5px 10px rgba(255,255,255,0.95);
+inset 5px 5px 10px rgba(0,0,0,.06),
+inset -5px -5px 10px rgba(255,255,255,.95);
 }
 
 .link{
@@ -346,76 +241,6 @@ white-space:nowrap;
 overflow:hidden;
 color:#374151;
 }
-  /* ===== SMOOTH PAGE OPEN ===== */
-
-.balance-card,
-.action-box,
-.stats,
-.refer-card{
-animation:smoothUp .7s ease;
-}
-
-@keyframes smoothUp{
-from{
-opacity:0;
-transform:translateY(35px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* ===== BUTTON RIPPLE ===== */
-
-.action-btn,
-.top-btn,
-.copy-btn{
-position:relative;
-overflow:hidden;
-transition:.25s;
-}
-
-.action-btn::after,
-.top-btn::after,
-.copy-btn::after{
-content:'';
-position:absolute;
-width:0;
-height:0;
-background:rgba(255,255,255,.5);
-border-radius:50%;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-transition:.5s;
-}
-
-.action-btn:active::after,
-.top-btn:active::after,
-.copy-btn:active::after{
-width:220px;
-height:220px;
-opacity:0;
-}
-
-/* ===== NAVBAR FLOAT ===== */
-
-.bottom-nav{
-animation:navFloat 3s ease-in-out infinite;
-}
-
-@keyframes navFloat{
-0%{
-transform:translateX(-50%) translateY(0);
-}
-50%{
-transform:translateX(-50%) translateY(-4px);
-}
-100%{
-transform:translateX(-50%) translateY(0);
-}
-}
 
 .copy-btn{
 width:64px;
@@ -425,191 +250,23 @@ border-radius:20px;
 font-size:26px;
 color:white;
 background:linear-gradient(145deg,#5ca8ff,#005eff);
-
-box-shadow:
-5px 5px 12px rgba(0,0,0,0.15),
--2px -2px 6px rgba(255,255,255,0.3);
 }
 
 </style>
 </head>
-<script>
 
-let count = 0;
-
-let target = 7;
-
-let balance = document.getElementById("balance");
-
-let counter = setInterval(()=>{
-
-count += 1;
-
-balance.innerHTML = "₹" + count + ".00";
-
-if(count >= target){
-
-clearInterval(counter);
-
-}
-
-},120);
-
-</script>
-  <!-- WITHDRAW MODAL -->
-
-<div id="withdrawModal" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(8px);
-z-index:9999;
-justify-content:center;
-align-items:center;
-">
-
-<div style="
-width:90%;
-max-width:380px;
-background:#eef3f9;
-padding:24px;
-border-radius:32px;
-
-box-shadow:
-10px 10px 22px rgba(0,0,0,.12),
--10px -10px 22px rgba(255,255,255,.95);
-">
-
-<h2 style="
-text-align:center;
-margin-bottom:18px;
-font-size:28px;
-font-weight:800;
-">
-Withdraw
-</h2>
-
-<input
-id="upi"
-placeholder="Enter UPI ID"
-style="
-width:100%;
-padding:16px;
-border:none;
-outline:none;
-border-radius:18px;
-margin-bottom:16px;
-background:#eef3f9;
-
-box-shadow:
-inset 5px 5px 10px rgba(0,0,0,.06),
-inset -5px -5px 10px rgba(255,255,255,.95);
-"
-/>
-
-<input
-id="amount"
-placeholder="Amount"
-type="number"
-style="
-width:100%;
-padding:16px;
-border:none;
-outline:none;
-border-radius:18px;
-margin-bottom:20px;
-background:#eef3f9;
-
-box-shadow:
-inset 5px 5px 10px rgba(0,0,0,.06),
-inset -5px -5px 10px rgba(255,255,255,.95);
-"
-/>
-
-<button onclick="submitWithdraw()" style="
-width:100%;
-padding:16px;
-border:none;
-border-radius:20px;
-font-size:16px;
-font-weight:700;
-color:white;
-background:linear-gradient(145deg,#4ea0ff,#005eff);
-
-box-shadow:
-5px 5px 12px rgba(0,0,0,.15);
-">
-Submit Request
-</button>
-
-<button onclick="closeWithdraw()" style="
-width:100%;
-padding:14px;
-margin-top:12px;
-border:none;
-border-radius:18px;
-font-size:15px;
-font-weight:700;
-background:#eef3f9;
-
-box-shadow:
-5px 5px 10px rgba(0,0,0,.08),
--5px -5px 10px rgba(255,255,255,.95);
-">
-Close
-</button>
-
-</div>
-</div>
-  <script>
-
-function openWithdraw(){
-document.getElementById("withdrawModal").style.display="flex";
-}
-
-function closeWithdraw(){
-document.getElementById("withdrawModal").style.display="none";
-}
-
-async function submitWithdraw(){
-
-let upi=document.getElementById("upi").value;
-
-let amount=document.getElementById("amount").value;
-
-if(!upi || !amount){
-alert("Fill all fields");
-return;
-}
-
-alert("Withdraw Request Submitted 🔥");
-
-closeWithdraw();
-
-}
-
-  </script>
 <body>
 
 <div class="balance-card">
 
 <div class="title">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="2.2" style="vertical-align:middle;margin-right:8px;">
-<path stroke-linecap="round" stroke-linejoin="round" d="M21 7H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1z"/>
-<path stroke-linecap="round" stroke-linejoin="round" d="M16 12h2"/>
-<path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 0 1 2-2h13"/>
-</svg>
-
-TOTAL BALANCE 
+💳 TOTAL BALANCE
 </div>
 
 <div class="balance-box">
-<div class="balance" id="balance">₹7.00</div>
+<div class="balance" id="balance">₹0.00</div>
 </div>
+
 <div class="top-row">
 <button class="top-btn blue">INSTANT PAYMENT</button>
 <button class="top-btn red">LOVE INDIA</button>
@@ -619,6 +276,8 @@ TOTAL BALANCE
 
 <div class="action-box">
 
+<div class="actions">
+
 <div class="action-btn">
 👥 REFER
 </div>
@@ -627,11 +286,19 @@ TOTAL BALANCE
 🕘 HISTORY
 </div>
 
-<div class="action-btn">
-⚡ PAYOUT
 <div class="action-btn" onclick="openWithdraw()">
 ⚡ PAYOUT
 </div>
+
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+
+<div class="icon">
 👥
 </div>
 
@@ -639,8 +306,8 @@ TOTAL BALANCE
 TOTAL REFERRALS
 </div>
 
-<div class="stat-value">
-<div class="stat-value" id="referrals">0</div>
+<div class="stat-value" id="referrals">
+0
 </div>
 
 </div>
@@ -676,7 +343,7 @@ Share your link and earn ₹3 instantly for every friend who joins!
 <div class="link-box">
 
 <div class="link">
-https://t.me/cashhungama_bot?start=728
+https://t.me/cashhungama_bot
 </div>
 
 <button class="copy-btn">
@@ -686,69 +353,162 @@ https://t.me/cashhungama_bot?start=728
 </div>
 
 </div>
+
+<!-- WITHDRAW MODAL -->
+
+<div id="withdrawModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(8px);
+z-index:9999;
+justify-content:center;
+align-items:center;
+">
+
+<div style="
+width:90%;
+max-width:380px;
+background:#eef3f9;
+padding:24px;
+border-radius:32px;
+">
+
+<h2 style="
+text-align:center;
+margin-bottom:18px;
+font-size:28px;
+font-weight:800;
+">
+Withdraw
+</h2>
+
+<input
+id="upi"
+placeholder="Enter UPI ID"
+style="
+width:100%;
+padding:16px;
+border:none;
+outline:none;
+border-radius:18px;
+margin-bottom:16px;
+"
+/>
+
+<input
+id="amount"
+placeholder="Amount"
+type="number"
+style="
+width:100%;
+padding:16px;
+border:none;
+outline:none;
+border-radius:18px;
+margin-bottom:20px;
+"
+/>
+
+<button onclick="submitWithdraw()" style="
+width:100%;
+padding:16px;
+border:none;
+border-radius:20px;
+font-size:16px;
+font-weight:700;
+color:white;
+background:linear-gradient(145deg,#4ea0ff,#005eff);
+">
+Submit Request
+</button>
+
+</div>
+
+</div>
+
 <script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+getFirestore,
+doc,
+setDoc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCy64nXc6dQ3vyxCgHjVI_IhzhQ5cxXyf8",
-  authDomain: "cash-hungama-ec64e.firebaseapp.com",
-  projectId: "cash-hungama-ec64e",
-  storageBucket: "cash-hungama-ec64e.firebasestorage.app",
-  messagingSenderId: "1073040348802",
-  appId: "1:1073040348802:web:82e1b2422916b5d6e3469b",
-  measurementId: "G-3MHFXCNQT1"
+apiKey: "AIzaSyCy64nXc6dQ3vyxCgHjVI_IhzhQ5cxXyf8",
+authDomain: "cash-hungama-ec64e.firebaseapp.com",
+projectId: "cash-hungama-ec64e",
+storageBucket: "cash-hungama-ec64e.firebasestorage.app",
+messagingSenderId: "1073040348802",
+appId: "1:1073040348802:web:82e1b2422916b5d6e3469b"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-  <script type="module">
-
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const db = getFirestore(app);
 
 let userId = localStorage.getItem("userId");
 
-if (!userId) {
-  userId = "user_" + Math.floor(Math.random() * 999999999);
-  localStorage.setItem("userId", userId);
+if(!userId){
+userId = "user_" + Math.floor(Math.random()*999999999);
+localStorage.setItem("userId", userId);
 }
 
-async function loadUser() {
+async function loadUser(){
 
-  const userRef = doc(db, "users", userId);
+const userRef = doc(db,"users",userId);
 
-  const snap = await getDoc(userRef);
+const snap = await getDoc(userRef);
 
-  if (!snap.exists()) {
+if(!snap.exists()){
 
-    await setDoc(userRef, {
-      balance: 7,
-      referrals: 0
-    });
+await setDoc(userRef,{
+balance:7,
+referrals:0
+});
 
-  }
+}
 
-  const data = (await getDoc(userRef)).data();
+const data = (await getDoc(userRef)).data();
 
-  document.getElementById("balance").innerText =
-    "₹" + data.balance.toFixed(2);
+document.getElementById("balance").innerText =
+"₹" + data.balance.toFixed(2);
 
-  document.getElementById("referrals").innerText =
-    data.referrals;
+document.getElementById("referrals").innerText =
+data.referrals;
+
 }
 
 loadUser();
 
+window.openWithdraw = function(){
+document.getElementById("withdrawModal").style.display="flex";
+}
+
+window.submitWithdraw = function(){
+
+let upi=document.getElementById("upi").value;
+let amount=document.getElementById("amount").value;
+
+if(!upi || !amount){
+alert("Fill all fields");
+return;
+}
+
+alert("Withdraw Request Submitted 🔥");
+
+document.getElementById("withdrawModal").style.display="none";
+
+}
+
 </script>
 
-console.log("Firebase Connected 🔥");
-</script>
 </body>
   </html>
