@@ -565,6 +565,34 @@ Close
 
 </div>
 </div>
+  <script>
+
+function openWithdraw(){
+document.getElementById("withdrawModal").style.display="flex";
+}
+
+function closeWithdraw(){
+document.getElementById("withdrawModal").style.display="none";
+}
+
+async function submitWithdraw(){
+
+let upi=document.getElementById("upi").value;
+
+let amount=document.getElementById("amount").value;
+
+if(!upi || !amount){
+alert("Fill all fields");
+return;
+}
+
+alert("Withdraw Request Submitted 🔥");
+
+closeWithdraw();
+
+}
+
+  </script>
 <body>
 
 <div class="balance-card">
@@ -601,15 +629,9 @@ TOTAL BALANCE
 
 <div class="action-btn">
 ⚡ PAYOUT
+<div class="action-btn" onclick="openWithdraw()">
+⚡ PAYOUT
 </div>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-card">
-
-<div class="icon">
 👥
 </div>
 
