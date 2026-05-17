@@ -346,6 +346,76 @@ white-space:nowrap;
 overflow:hidden;
 color:#374151;
 }
+  /* ===== SMOOTH PAGE OPEN ===== */
+
+.balance-card,
+.action-box,
+.stats,
+.refer-card{
+animation:smoothUp .7s ease;
+}
+
+@keyframes smoothUp{
+from{
+opacity:0;
+transform:translateY(35px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ===== BUTTON RIPPLE ===== */
+
+.action-btn,
+.top-btn,
+.copy-btn{
+position:relative;
+overflow:hidden;
+transition:.25s;
+}
+
+.action-btn::after,
+.top-btn::after,
+.copy-btn::after{
+content:'';
+position:absolute;
+width:0;
+height:0;
+background:rgba(255,255,255,.5);
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+transition:.5s;
+}
+
+.action-btn:active::after,
+.top-btn:active::after,
+.copy-btn:active::after{
+width:220px;
+height:220px;
+opacity:0;
+}
+
+/* ===== NAVBAR FLOAT ===== */
+
+.bottom-nav{
+animation:navFloat 3s ease-in-out infinite;
+}
+
+@keyframes navFloat{
+0%{
+transform:translateX(-50%) translateY(0);
+}
+50%{
+transform:translateX(-50%) translateY(-4px);
+}
+100%{
+transform:translateX(-50%) translateY(0);
+}
+}
 
 .copy-btn{
 width:64px;
@@ -363,19 +433,47 @@ box-shadow:
 
 </style>
 </head>
+<script>
 
+let count = 0;
+
+let target = 7;
+
+let balance = document.getElementById("balance");
+
+let counter = setInterval(()=>{
+
+count += 1;
+
+balance.innerHTML = "₹" + count + ".00";
+
+if(count >= target){
+
+clearInterval(counter);
+
+}
+
+},120);
+
+</script>
 <body>
 
 <div class="balance-card">
 
 <div class="title">
-💳 TOTAL BALANCE
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#2563eb" stroke-width="2.2" style="vertical-align:middle;margin-right:8px;">
+<path stroke-linecap="round" stroke-linejoin="round" d="M21 7H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1z"/>
+<path stroke-linecap="round" stroke-linejoin="round" d="M16 12h2"/>
+<path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 0 1 2-2h13"/>
+</svg>
+
+TOTAL BALANCE 
 </div>
 
 <div class="balance-box">
-<div class="balance">₹7.00</div>
+<div class="balance" id="balance">
+₹0
 </div>
-
 <div class="top-row">
 <button class="top-btn blue">INSTANT PAYMENT</button>
 <button class="top-btn red">LOVE INDIA</button>
