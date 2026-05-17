@@ -1,273 +1,290 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cash Hungama</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
 margin:0;
-font-family:sans-serif;
-background:#edf1f7;
-color:#1f2937;
-}
-
-.header{
-padding:20px;
-font-size:32px;
-font-weight:bold;
-}
-
-.page{
-display:none;
-padding:15px;
-}
-
-.active{
-display:block;
-}
-
-.card{
-background:white;
-border-radius:25px;
-padding:20px;
-margin-bottom:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-.balance{
-font-size:60px;
-font-weight:bold;
-text-align:center;
-margin:20px 0;
-}
-
-.row{
-display:flex;
-gap:10px;
-}
-
-.btn{
-flex:1;
-padding:18px;
-border:none;
-border-radius:18px;
-font-size:20px;
-font-weight:bold;
-background:white;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.stat{
-flex:1;
-background:white;
-padding:25px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-.stat h1{
-font-size:50px;
-margin:10px 0;
-}
-
-.linkbox{
-display:flex;
-background:#f3f4f6;
-border-radius:15px;
-overflow:hidden;
-margin-top:15px;
-}
-
-.linkbox input{
-flex:1;
-padding:18px;
-border:none;
-background:none;
-font-size:16px;
-}
-
-.copy{
-background:#3b82f6;
-color:white;
-border:none;
-padding:18px;
-font-weight:bold;
-}
-
-.back{
-margin-bottom:20px;
-padding:12px 20px;
-border:none;
-border-radius:12px;
-font-size:18px;
-font-weight:bold;
-background:black;
-color:white;
-}
-
-.input{
-width:100%;
-padding:18px;
-margin-top:15px;
-border:none;
-border-radius:15px;
-background:#f3f4f6;
-font-size:18px;
+padding:0;
 box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-.withdrawbtn{
-width:100%;
-padding:18px;
-margin-top:20px;
+body{
+background:#eef1f5;
+padding:20px;
+color:#1f2b46;
+}
+
+.balance-card{
+background:#edf1f7;
+border-radius:35px;
+padding:25px;
+box-shadow:
+10px 10px 25px rgba(0,0,0,0.08),
+-10px -10px 25px rgba(255,255,255,0.9);
+position:relative;
+overflow:hidden;
+margin-bottom:25px;
+}
+
+.balance-card::before{
+content:'';
+position:absolute;
+top:-80px;
+left:-40px;
+width:250px;
+height:180px;
+background:rgba(255,255,255,0.5);
+transform:rotate(-15deg);
+border-radius:50px;
+}
+
+.small-text{
+font-size:14px;
+font-weight:700;
+letter-spacing:2px;
+color:#6b7280;
+margin-bottom:20px;
+}
+
+.balance-box{
+background:#edf1f7;
+padding:30px;
+border-radius:25px;
+text-align:center;
+font-size:60px;
+font-weight:800;
+
+box-shadow:
+inset 5px 5px 12px rgba(0,0,0,0.08),
+inset -5px -5px 12px rgba(255,255,255,0.9);
+}
+
+.top-buttons{
+display:flex;
+gap:15px;
+margin-top:25px;
+}
+
+.top-btn{
+flex:1;
+padding:14px;
 border:none;
 border-radius:18px;
-font-size:22px;
-font-weight:bold;
-background:#10b981;
-color:white;
+font-weight:700;
+font-size:14px;
+background:#edf1f7;
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.9);
 }
 
-.history-item{
-background:white;
-padding:18px;
-border-radius:18px;
-margin-top:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+.blue{
+color:#2563eb;
 }
+
+.red{
+color:#ef4444;
+}
+
+.action-row{
+display:flex;
+gap:15px;
+margin-bottom:25px;
+}
+
+.action-btn{
+flex:1;
+background:#edf1f7;
+padding:18px;
+border-radius:22px;
+text-align:center;
+font-weight:700;
+font-size:18px;
+
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.9);
+}
+
+.stats{
+display:flex;
+gap:18px;
+margin-bottom:25px;
+}
+
+.stat-card{
+flex:1;
+background:#edf1f7;
+padding:25px;
+border-radius:30px;
+text-align:center;
+
+box-shadow:
+10px 10px 20px rgba(0,0,0,0.08),
+-10px -10px 20px rgba(255,255,255,0.9);
+}
+
+.stat-icon{
+font-size:34px;
+margin-bottom:15px;
+}
+
+.stat-title{
+font-size:14px;
+font-weight:700;
+letter-spacing:1px;
+color:#6b7280;
+margin-bottom:10px;
+}
+
+.stat-value{
+font-size:50px;
+font-weight:800;
+}
+
+.refer-card{
+background:#edf1f7;
+padding:28px;
+border-radius:30px;
+
+box-shadow:
+10px 10px 20px rgba(0,0,0,0.08),
+-10px -10px 20px rgba(255,255,255,0.9);
+}
+
+.refer-title{
+font-size:38px;
+font-weight:800;
+text-align:center;
+margin-bottom:15px;
+}
+
+.refer-text{
+text-align:center;
+font-size:18px;
+font-weight:600;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.link-box{
+display:flex;
+align-items:center;
+background:#edf1f7;
+border-radius:22px;
+padding:10px;
+
+box-shadow:
+inset 4px 4px 10px rgba(0,0,0,0.08),
+inset -4px -4px 10px rgba(255,255,255,0.9);
+}
+
+.link-input{
+flex:1;
+border:none;
+background:transparent;
+padding:15px;
+font-size:16px;
+outline:none;
+}
+
+.copy-btn{
+width:70px;
+height:70px;
+border:none;
+border-radius:22px;
+font-size:28px;
+background:linear-gradient(145deg,#4f9cff,#0066ff);
+color:white;
+
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.2),
+-3px -3px 10px rgba(255,255,255,0.4);
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="header">
-Cash Hungama 🔥
+<div class="balance-card">
+
+<div class="small-text">
+🧾 TOTAL BALANCE
 </div>
 
-<!-- HOME -->
-<div id="home" class="page active">
-
-<div class="card">
-<div style="font-size:18px;">TOTAL BALANCE</div>
-
-<div class="balance">₹7.00</div>
-
-<div class="row">
-<button class="btn">INSTANT PAYMENT</button>
-<button class="btn">LOVE INDIA</button>
-</div>
+<div class="balance-box">
+₹7.00
 </div>
 
-<div class="card">
-<div class="row">
-<button class="btn" onclick="showPage('refer')">👥 REFER</button>
-<button class="btn" onclick="showPage('history')">🕘 HISTORY</button>
-<button class="btn" onclick="showPage('withdraw')">⚡ PAYOUT</button>
-</div>
-</div>
-
-<div class="row">
-<div class="stat">
-<div>👥 TOTAL REFERRALS</div>
-<h1>0</h1>
-</div>
-
-<div class="stat">
-<div>🎁 PER INVITE</div>
-<h1>₹3</h1>
-</div>
+<div class="top-buttons">
+<button class="top-btn blue">INSTANT PAYMENT</button>
+<button class="top-btn red">LOVE INDIA</button>
 </div>
 
 </div>
 
-<!-- REFER PAGE -->
-<div id="refer" class="page">
+<div class="action-row">
 
-<button class="back" onclick="showPage('home')">← Back</button>
+<div class="action-btn">
+👥 REFER
+</div>
 
-<div class="card">
-<h1>Invite & Earn</h1>
+<div class="action-btn">
+🕘 HISTORY
+</div>
 
-<p>Share your link and earn ₹3 instantly for every friend who joins!</p>
-
-<div class="linkbox">
-<input id="refLink" value="https://t.me/cashhungama_bot?start=728" readonly>
-<button class="copy" onclick="copyLink()">COPY</button>
+<div class="action-btn">
+⚡ PAYOUT
 </div>
 
 </div>
 
+<div class="stats">
+
+<div class="stat-card">
+<div class="stat-icon">👥</div>
+<div class="stat-title">TOTAL REFERRALS</div>
+<div class="stat-value">0</div>
 </div>
 
-<!-- WITHDRAW PAGE -->
-<div id="withdraw" class="page">
+<div class="stat-card">
+<div class="stat-icon">🎁</div>
+<div class="stat-title">PER INVITE</div>
+<div class="stat-value">₹3</div>
+</div>
 
-<button class="back" onclick="showPage('home')">← Back</button>
+</div>
 
-<div class="card">
+<div class="refer-card">
 
-<h1>Payout Request</h1>
+<div class="refer-title">
+Invite & Earn
+</div>
 
-<input class="input" placeholder="Enter Amount">
+<div class="refer-text">
+Share your link and earn <span style="color:#2563eb;">₹3 instantly</span> for every friend who joins!
+</div>
 
-<input class="input" placeholder="UPI ID">
+<div class="link-box">
 
-<button class="withdrawbtn">
-Withdraw Now
+<input class="link-input" value="https://t.me/cashhungama_bot?start=728" readonly>
+
+<button class="copy-btn">
+📋
 </button>
 
 </div>
 
 </div>
 
-<!-- HISTORY PAGE -->
-<div id="history" class="page">
-
-<button class="back" onclick="showPage('home')">← Back</button>
-
-<div class="card">
-<h1>History</h1>
-
-<div class="history-item">
-Referral Bonus +₹3
-</div>
-
-<div class="history-item">
-Daily Bonus +₹1
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-function showPage(page){
-
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active");
-});
-
-document.getElementById(page).classList.add("active");
-
-}
-
-function copyLink(){
-
-let copyText=document.getElementById("refLink");
-
-copyText.select();
-
-document.execCommand("copy");
-
-alert("Referral Link Copied");
-
-}
-
-</script>
-
 </body>
-  </html>
+</html>
