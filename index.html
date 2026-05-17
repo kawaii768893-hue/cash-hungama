@@ -4,411 +4,340 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Eagle Fan</title>
+<title>Cash Hungama</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:'Outfit',sans-serif;
 -webkit-tap-highlight-color:transparent;
 }
 
 body{
-background:#edf2f7;
-max-width:430px;
-margin:auto;
-padding:14px;
+background:linear-gradient(135deg,#f1f5f9 0%,#dbe4ef 100%);
 overflow-x:hidden;
+min-height:100vh;
 color:#0f172a;
 }
 
-/* ===== TOP ===== */
+/* ===== 3D CARD ===== */
 
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:18px;
-}
+.card3d{
+background:linear-gradient(180deg,#ffffff 0%,#e2e8f0 100%);
 
-.top-left{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:18px;
-font-weight:700;
-}
-
-.close{
-font-size:28px;
-font-weight:400;
-}
-
-.menu{
-font-size:28px;
-}
-
-/* ===== USER ===== */
-
-.user-box{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:18px;
-}
-
-.welcome{
-font-size:11px;
-font-weight:700;
-letter-spacing:2px;
-color:#94a3b8;
-margin-bottom:4px;
-}
-
-.username{
-font-size:46px;
-font-weight:800;
-line-height:1;
-letter-spacing:-1px;
-}
-
-.avatar{
-width:62px;
-height:62px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-background:#edf2f7;
+border:1px solid rgba(255,255,255,.9);
 
 box-shadow:
-7px 7px 18px rgba(0,0,0,.08),
--7px -7px 18px rgba(255,255,255,.96);
+0 15px 35px rgba(15,23,42,.12),
+0 5px 12px rgba(0,0,0,.05),
+inset 0 2px 0 rgba(255,255,255,1),
+inset 0 -2px 0 rgba(203,213,225,.7);
+
+border-radius:32px;
 }
 
-/* ===== CARD ===== */
+/* ===== INNER ===== */
 
-.balance-card{
-padding:18px;
-border-radius:34px;
-background:#edf2f7;
+.inner{
+background:linear-gradient(180deg,#e2e8f0 0%,#f8fafc 100%);
+
+border:1px solid #cbd5e1;
 
 box-shadow:
-10px 10px 24px rgba(0,0,0,.08),
--10px -10px 24px rgba(255,255,255,.98);
+inset 0 5px 10px rgba(15,23,42,.08),
+0 1px 0 rgba(255,255,255,1);
 
-margin-bottom:18px;
-}
-
-.card-title{
-font-size:12px;
-font-weight:800;
-letter-spacing:2px;
-color:#7b8794;
-margin-bottom:16px;
-}
-
-.balance-box{
-padding:24px 10px;
-border-radius:26px;
-text-align:center;
-background:#edf2f7;
-
-box-shadow:
-inset 5px 5px 10px rgba(0,0,0,.05),
-inset -5px -5px 10px rgba(255,255,255,.95);
-}
-
-.balance{
-font-size:68px;
-font-weight:800;
-color:#14213d;
-line-height:1;
-}
-
-.top-buttons{
-display:flex;
-gap:10px;
-margin-top:16px;
-}
-
-.top-btn{
-flex:1;
-padding:13px;
-border:none;
-border-radius:16px;
-background:#edf2f7;
-font-size:13px;
-font-weight:700;
-
-box-shadow:
-5px 5px 10px rgba(0,0,0,.08),
--5px -5px 10px rgba(255,255,255,.96);
-}
-
-.blue{
-color:#2563eb;
-}
-
-.red{
-color:#ef4444;
-}
-
-/* ===== ACTIONS ===== */
-
-.actions{
-display:flex;
-gap:10px;
-padding:10px;
-border-radius:22px;
-margin-bottom:18px;
-background:#edf2f7;
-
-box-shadow:
-8px 8px 18px rgba(0,0,0,.08),
--8px -8px 18px rgba(255,255,255,.96);
-}
-
-.action-btn{
-flex:1;
-padding:16px 8px;
-border-radius:18px;
-text-align:center;
-font-size:13px;
-font-weight:700;
-background:#edf2f7;
-
-box-shadow:
-5px 5px 10px rgba(0,0,0,.08),
--5px -5px 10px rgba(255,255,255,.96);
-}
-
-/* ===== RECENT ===== */
-
-.activity-card{
-padding:18px;
-border-radius:34px;
-background:#edf2f7;
-
-box-shadow:
-10px 10px 24px rgba(0,0,0,.08),
--10px -10px 24px rgba(255,255,255,.98);
-}
-
-.activity-title{
-font-size:18px;
-font-weight:800;
-margin-bottom:16px;
-}
-
-.line{
-height:1px;
-background:#d9e1ea;
-margin-bottom:16px;
-}
-
-.activity-item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:16px;
 border-radius:24px;
-background:#edf2f7;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn3d{
+background:linear-gradient(180deg,#ffffff 0%,#dbe4ef 100%);
 
 box-shadow:
-inset 2px 2px 5px rgba(0,0,0,.04),
-inset -2px -2px 5px rgba(255,255,255,.96);
+0 6px 14px rgba(15,23,42,.10),
+inset 0 2px 0 rgba(255,255,255,1),
+inset 0 -3px 0 rgba(148,163,184,.5);
+
+transition:.15s ease;
 }
 
-.activity-left{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.activity-icon{
-width:58px;
-height:58px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-color:#00a86b;
-background:#edf2f7;
+.btn3d:active{
+transform:translateY(2px);
 
 box-shadow:
-5px 5px 10px rgba(0,0,0,.08),
--5px -5px 10px rgba(255,255,255,.96);
+inset 0 5px 10px rgba(15,23,42,.12);
 }
 
-.activity-name{
-font-size:16px;
-font-weight:700;
+.blueBtn{
+background:linear-gradient(180deg,#60a5fa 0%,#2563eb 100%);
+color:white;
+
+box-shadow:
+0 10px 18px rgba(37,99,235,.35),
+inset 0 2px 0 rgba(255,255,255,.35),
+inset 0 -3px 0 rgba(30,58,138,.5);
 }
 
-.activity-time{
-font-size:11px;
-font-weight:600;
-color:#6b7280;
-margin-top:3px;
+.blueBtn:active{
+transform:translateY(3px);
 }
 
-.activity-amount{
-font-size:20px;
-font-weight:800;
-color:#00a86b;
+/* ===== TAB ===== */
+
+.tab{
+display:none;
+animation:pop .3s ease;
 }
 
-/* ===== ANIMATION ===== */
-
-.balance-card,
-.actions,
-.activity-card{
-animation:up .6s ease;
+.tab.active{
+display:block;
 }
 
-@keyframes up{
+@keyframes pop{
 from{
 opacity:0;
-transform:translateY(18px);
+transform:translateY(10px) scale(.97);
 }
 to{
 opacity:1;
-transform:translateY(0);
+transform:translateY(0) scale(1);
 }
 }
 
-.action-btn:active,
-.top-btn:active{
-transform:scale(.96);
+/* ===== TOAST ===== */
+
+#toast{
+position:fixed;
+bottom:25px;
+left:50%;
+transform:translateX(-50%) translateY(30px);
+
+background:#0f172a;
+color:white;
+
+padding:14px 22px;
+
+border-radius:999px;
+
+font-weight:800;
+font-size:13px;
+
+opacity:0;
+
+transition:.3s;
+
+z-index:9999;
+}
+
+#toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0);
 }
 
 </style>
 </head>
 
-<body>
+<body class="max-w-md mx-auto p-4 pb-10">
+
+<!-- TOAST -->
+
+<div id="toast">
+Copied Successfully 🔥
+</div>
 
 <!-- TOP -->
 
-<div class="topbar">
-
-<div class="top-left">
-<div class="close">✕</div>
-<div>Eagle Fand 🔥</div>
-</div>
-
-<div class="menu">⋮</div>
-
-</div>
-
-<!-- USER -->
-
-<div class="user-box">
+<div class="flex items-center justify-between pt-2 mb-6">
 
 <div>
-<div class="welcome">
+
+<p class="text-[11px] uppercase tracking-[3px] text-slate-400 font-black mb-1">
 WELCOME BACK
-</div>
+</p>
 
-<div class="username">
+<h1 class="text-4xl font-black italic text-slate-800">
 Kaito 👋
-</div>
+</h1>
+
 </div>
 
-<div class="avatar">
-🧑🏻‍💻
+<div class="card3d w-14 h-14 flex items-center justify-center rounded-full">
+<i class="fa-solid fa-user-secret text-2xl text-blue-500"></i>
 </div>
 
 </div>
 
 <!-- BALANCE -->
 
-<div class="balance-card">
+<div class="card3d p-5 mb-6">
 
-<div class="card-title">
-💳 TOTAL BALANCE
-</div>
+<p class="text-[11px] uppercase tracking-[3px] text-slate-500 font-black mb-4 flex items-center gap-2">
+<i class="fa-solid fa-wallet"></i>
+TOTAL BALANCE
+</p>
 
-<div class="balance-box">
+<div class="inner p-5 text-center mb-4">
 
-<div class="balance">
+<h2 class="text-5xl font-black text-slate-800" id="balance">
 ₹7.00
-</div>
+</h2>
 
 </div>
 
-<div class="top-buttons">
+<div class="flex gap-3">
 
-<button class="top-btn blue">
+<div class="inner flex-1 py-2 text-center text-[10px] font-black uppercase text-blue-600 tracking-wider">
 INSTANT PAYMENT
-</button>
+</div>
 
-<button class="top-btn red">
+<div class="inner flex-1 py-2 text-center text-[10px] font-black uppercase text-red-500 tracking-wider">
 LOVE INDIA
+</div>
+
+</div>
+
+</div>
+
+<!-- MENU -->
+
+<div class="inner p-2 flex gap-2 mb-6">
+
+<button onclick="openTab('refer')" id="btnRefer"
+class="btn3d flex-1 py-3 rounded-2xl text-[11px] uppercase font-black tracking-wider">
+👥 REFER
+</button>
+
+<button onclick="openTab('history')" id="btnHistory"
+class="btn3d flex-1 py-3 rounded-2xl text-[11px] uppercase font-black tracking-wider">
+🕘 HISTORY
+</button>
+
+<button onclick="openTab('withdraw')" id="btnWithdraw"
+class="btn3d flex-1 py-3 rounded-2xl text-[11px] uppercase font-black tracking-wider">
+⚡ PAYOUT
+</button>
+
+</div>
+
+<!-- REFER -->
+
+<div id="refer" class="tab active">
+
+<div class="grid grid-cols-2 gap-4 mb-5">
+
+<div class="card3d p-5 text-center">
+
+<div class="card3d w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+<i class="fa-solid fa-users text-blue-500"></i>
+</div>
+
+<p class="text-[10px] uppercase tracking-[2px] font-black text-slate-500 mb-1">
+TOTAL REFERRALS
+</p>
+
+<h3 class="text-3xl font-black">
+0
+</h3>
+
+</div>
+
+<div class="card3d p-5 text-center">
+
+<div class="card3d w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+<i class="fa-solid fa-gift text-red-500"></i>
+</div>
+
+<p class="text-[10px] uppercase tracking-[2px] font-black text-slate-500 mb-1">
+PER INVITE
+</p>
+
+<h3 class="text-3xl font-black">
+₹3
+</h3>
+
+</div>
+
+</div>
+
+<div class="card3d p-6 text-center">
+
+<h3 class="text-2xl font-black mb-2">
+Invite & Earn
+</h3>
+
+<p class="text-sm text-slate-500 font-bold mb-6">
+Share your link and earn ₹3 instantly.
+</p>
+
+<div class="inner p-3 rounded-2xl flex items-center justify-between mb-6">
+
+<div id="refLink" class="text-xs font-bold text-slate-600 truncate pr-2">
+https://t.me/cashhungama_bot?start=728
+</div>
+
+<button onclick="copyLink()"
+class="blueBtn w-10 h-10 rounded-xl flex items-center justify-center">
+
+<i class="fa-regular fa-copy"></i>
+
+</button>
+
+</div>
+
+<button class="blueBtn w-full py-4 rounded-2xl font-black uppercase tracking-[2px] text-xs">
+SHARE ON TELEGRAM
 </button>
 
 </div>
 
 </div>
 
-<!-- ACTIONS -->
+<!-- HISTORY -->
 
-<div class="actions">
+<div id="history" class="tab">
 
-<div class="action-btn">
-👥 REFER
-</div>
+<div class="card3d p-6">
 
-<div class="action-btn">
-🕘 HISTORY
-</div>
+<h3 class="text-lg font-black mb-5 flex items-center gap-2">
+<i class="fa-solid fa-list"></i>
+Recent Activity
+</h3>
 
-<div class="action-btn">
-⚡ PAYOUT
-</div>
+<div class="space-y-4">
 
-</div>
+<div class="inner p-4 rounded-2xl flex items-center justify-between">
 
-<!-- RECENT -->
+<div class="flex items-center gap-4">
 
-<div class="activity-card">
-
-<div class="activity-title">
-☰ Recent Activity
-</div>
-
-<div class="line"></div>
-
-<div class="activity-item">
-
-<div class="activity-left">
-
-<div class="activity-icon">
-⬇
+<div class="card3d w-11 h-11 rounded-full flex items-center justify-center">
+<i class="fa-solid fa-arrow-down text-green-600"></i>
 </div>
 
 <div>
 
-<div class="activity-name">
+<p class="font-black text-sm">
 Bonus
-</div>
+</p>
 
-<div class="activity-time">
-16 MAY 2026, 05:37 PM
-</div>
-
-</div>
+<p class="text-[10px] uppercase tracking-[2px] text-slate-500 font-bold">
+16 MAY 2026
+</p>
 
 </div>
 
-<div class="activity-amount">
+</div>
+
+<div class="text-lg font-black text-green-600">
 +₹7.00
 </div>
 
@@ -416,5 +345,125 @@ Bonus
 
 </div>
 
+</div>
+
+</div>
+
+<!-- WITHDRAW -->
+
+<div id="withdraw" class="tab">
+
+<div class="card3d p-7 text-center">
+
+<div class="card3d w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5">
+
+<i class="fa-solid fa-bolt text-3xl text-red-500"></i>
+
+</div>
+
+<h3 class="text-2xl font-black mb-2">
+Flash Withdraw
+</h3>
+
+<p class="text-xs uppercase tracking-[2px] text-slate-500 font-black mb-7">
+Instant UPI Transfer
+</p>
+
+<div class="inner p-5 rounded-2xl text-left space-y-4 mb-7">
+
+<div class="flex justify-between">
+
+<span class="text-[10px] uppercase tracking-[2px] font-black text-slate-500">
+PAYMENT MIN
+</span>
+
+<b>₹10.00</b>
+
+</div>
+
+<div class="flex justify-between">
+
+<span class="text-[10px] uppercase tracking-[2px] font-black text-slate-500">
+SPEED
+</span>
+
+<b>Instant</b>
+
+</div>
+
+<div class="flex justify-between">
+
+<span class="text-[10px] uppercase tracking-[2px] font-black text-slate-500">
+PLATFORM FEE
+</span>
+
+<b class="text-green-600">
+0%
+</b>
+
+</div>
+
+</div>
+
+<button class="blueBtn w-full py-5 rounded-2xl text-xs uppercase tracking-[3px] font-black">
+OPEN WITHDRAW PANEL
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function openTab(tab){
+
+document.querySelectorAll(".tab").forEach(t=>{
+t.classList.remove("active");
+});
+
+document.getElementById(tab).classList.add("active");
+
+}
+
+function copyLink(){
+
+let text=document.getElementById("refLink").innerText;
+
+navigator.clipboard.writeText(text);
+
+let toast=document.getElementById("toast");
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2200);
+
+}
+
+/* BALANCE ANIMATION */
+
+let count=0;
+
+let target=7;
+
+let balance=document.getElementById("balance");
+
+let counter=setInterval(()=>{
+
+count++;
+
+balance.innerHTML="₹"+count+".00";
+
+if(count>=target){
+
+clearInterval(counter);
+
+}
+
+},120);
+
+</script>
+
 </body>
-  </html>
+</html>
