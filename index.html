@@ -9,255 +9,257 @@
 
 <style>
 
-/* ===== MOBILE FIXED SIZE ===== */
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-  background:#eef3f9;
-  font-family:Arial,sans-serif;
-  max-width:430px;
-  margin:auto;
-  overflow-x:hidden;
-  padding:14px;
+background:#edf2f8;
+max-width:430px;
+margin:auto;
+padding:16px;
+overflow-x:hidden;
+color:#1e293b;
 }
 
-/* ===== TOP BALANCE CARD ===== */
+/* ===== BALANCE CARD ===== */
+
 .balance-card{
-  background:#f4f7fb;
-  border-radius:30px;
-  padding:20px;
-  box-shadow:
-    10px 10px 25px rgba(0,0,0,.08),
-    -10px -10px 25px rgba(255,255,255,.9);
-  border:1px solid #dfe6ef;
-  margin-bottom:18px;
+background:#eef3f9;
+border-radius:38px;
+padding:22px;
+position:relative;
+
+box-shadow:
+12px 12px 25px rgba(0,0,0,0.08),
+-12px -12px 25px rgba(255,255,255,0.95);
+
+border:1px solid rgba(255,255,255,0.7);
+
+overflow:hidden;
 }
 
-.balance-title{
-  font-size:15px;
-  font-weight:700;
-  color:#667085;
-  letter-spacing:2px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:18px;
+.balance-card::before{
+content:'';
+position:absolute;
+top:-80px;
+left:-60px;
+width:240px;
+height:160px;
+background:rgba(255,255,255,0.55);
+transform:rotate(-15deg);
+border-radius:40px;
+}
+
+.title{
+font-size:14px;
+font-weight:800;
+letter-spacing:2px;
+color:#6b7280;
+margin-bottom:20px;
+position:relative;
+z-index:2;
 }
 
 .balance-box{
-  background:#edf2f8;
-  border-radius:24px;
-  padding:24px;
-  text-align:center;
-  border:1px solid #d6dee8;
+background:#eef3f9;
+padding:28px;
+border-radius:28px;
+text-align:center;
+position:relative;
+z-index:2;
 
-  box-shadow:
-    inset 5px 5px 10px rgba(0,0,0,.05),
-    inset -5px -5px 10px rgba(255,255,255,.9);
+box-shadow:
+inset 6px 6px 14px rgba(0,0,0,0.06),
+inset -6px -6px 14px rgba(255,255,255,0.95);
 }
 
-.balance-amount{
-  font-size:68px;
-  font-weight:900;
-  color:#14213d;
-  text-shadow:2px 2px 4px rgba(0,0,0,.08);
+.balance{
+font-size:72px;
+font-weight:800;
+color:#14213d;
+text-shadow:2px 2px 4px rgba(0,0,0,0.08);
 }
 
-.balance-buttons{
-  display:flex;
-  gap:12px;
-  margin-top:18px;
+.top-row{
+display:flex;
+gap:14px;
+margin-top:18px;
+position:relative;
+z-index:2;
 }
 
-.small-btn{
-  flex:1;
-  padding:14px;
-  border-radius:16px;
-  border:1px solid #d4dce6;
-  background:#f4f7fb;
-  font-weight:700;
-  font-size:15px;
+.top-btn{
+flex:1;
+padding:14px;
+border:none;
+border-radius:18px;
+background:#eef3f9;
+font-size:14px;
+font-weight:700;
 
-  box-shadow:
-    4px 4px 8px rgba(0,0,0,.08),
-    -4px -4px 8px rgba(255,255,255,.9);
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.95);
 }
 
 .blue{
-  color:#1d5eff;
+color:#2563eb;
 }
 
 .red{
-  color:#ff4d57;
+color:#ef4444;
 }
 
-/* ===== 3 BUTTONS ===== */
-.menu-box{
-  background:#edf2f8;
-  border-radius:24px;
-  padding:12px;
-  display:flex;
-  gap:12px;
-  margin-bottom:22px;
+/* ===== ACTION BUTTONS ===== */
 
-  box-shadow:
-    6px 6px 12px rgba(0,0,0,.08),
-    -6px -6px 12px rgba(255,255,255,.9);
+.action-box{
+margin-top:22px;
+background:#eef3f9;
+padding:12px;
+border-radius:28px;
+
+box-shadow:
+8px 8px 18px rgba(0,0,0,0.08),
+-8px -8px 18px rgba(255,255,255,0.95);
+
+display:flex;
+gap:12px;
 }
 
-.menu-btn{
-  flex:1;
-  background:#f5f7fb;
-  border-radius:18px;
-  padding:18px 8px;
-  text-align:center;
-  font-size:15px;
-  font-weight:800;
-  color:#27364d;
-  border:1px solid #cfd7e3;
+.action-btn{
+flex:1;
+background:#f4f7fb;
+padding:18px 10px;
+border-radius:22px;
+text-align:center;
+font-size:15px;
+font-weight:800;
+color:#1e293b;
 
-  box-shadow:
-    4px 4px 10px rgba(0,0,0,.08),
-    -4px -4px 10px rgba(255,255,255,.95);
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.95);
 }
 
-/* ===== MINI CARDS ===== */
+/* ===== STATS ===== */
+
 .stats{
-  display:flex;
-  gap:18px;
-  margin-bottom:24px;
+display:flex;
+gap:16px;
+margin-top:22px;
 }
 
 .stat-card{
-  flex:1;
-  background:#f4f7fb;
-  border-radius:28px;
-  padding:22px;
-  text-align:center;
-  min-height:180px;
+flex:1;
+background:#eef3f9;
+padding:22px;
+border-radius:30px;
+text-align:center;
 
-  box-shadow:
-    8px 8px 18px rgba(0,0,0,.08),
-    -8px -8px 18px rgba(255,255,255,.95);
+box-shadow:
+10px 10px 22px rgba(0,0,0,0.08),
+-10px -10px 22px rgba(255,255,255,0.95);
 }
 
-.circle-icon{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  margin:auto;
-  margin-bottom:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f4f7fb;
+.icon{
+width:72px;
+height:72px;
+border-radius:50%;
+margin:auto;
+margin-bottom:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+background:#eef3f9;
 
-  box-shadow:
-    5px 5px 10px rgba(0,0,0,.08),
-    -5px -5px 10px rgba(255,255,255,.95);
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.95);
 }
 
 .stat-title{
-  color:#6a7689;
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:1px;
+font-size:13px;
+font-weight:700;
+color:#6b7280;
+letter-spacing:1px;
 }
 
 .stat-value{
-  font-size:56px;
-  font-weight:900;
-  margin-top:10px;
-  color:#132238;
+font-size:54px;
+font-weight:800;
+margin-top:10px;
 }
 
 /* ===== REFER CARD ===== */
-.refer-card{
-  background:#f8fafc;
-  border-radius:30px;
-  padding:24px;
-  margin-bottom:25px;
 
-  box-shadow:
-    8px 8px 20px rgba(0,0,0,.08),
-    -8px -8px 20px rgba(255,255,255,.95);
+.refer-card{
+margin-top:24px;
+background:#eef3f9;
+padding:26px;
+border-radius:34px;
+
+box-shadow:
+10px 10px 22px rgba(0,0,0,0.08),
+-10px -10px 22px rgba(255,255,255,0.95);
 }
 
 .refer-title{
-  font-size:24px;
-  font-weight:900;
-  text-align:center;
-  margin-bottom:14px;
-  color:#17253d;
+font-size:34px;
+font-weight:800;
+text-align:center;
+margin-bottom:14px;
 }
 
 .refer-text{
-  text-align:center;
-  color:#4b5b72;
-  font-size:18px;
-  line-height:1.5;
-  font-weight:700;
+text-align:center;
+font-size:16px;
+line-height:1.7;
+font-weight:600;
+color:#4b5563;
 }
 
-.refer-link-box{
-  margin-top:24px;
-  background:#edf2f8;
-  border-radius:22px;
-  padding:12px;
-  display:flex;
-  align-items:center;
-  gap:10px;
+.link-box{
+margin-top:24px;
+background:#eef3f9;
+border-radius:24px;
+padding:10px;
+display:flex;
+align-items:center;
+gap:10px;
 
-  box-shadow:
-    inset 4px 4px 8px rgba(0,0,0,.05),
-    inset -4px -4px 8px rgba(255,255,255,.95);
+box-shadow:
+inset 5px 5px 10px rgba(0,0,0,0.06),
+inset -5px -5px 10px rgba(255,255,255,0.95);
 }
 
-.refer-link{
-  flex:1;
-  overflow:hidden;
-  white-space:nowrap;
-  color:#49576c;
-  font-size:15px;
+.link{
+flex:1;
+padding:14px;
+font-size:14px;
+white-space:nowrap;
+overflow:hidden;
+color:#374151;
 }
 
 .copy-btn{
-  width:60px;
-  height:60px;
-  border-radius:18px;
-  border:none;
-  background:linear-gradient(145deg,#4ea0ff,#0057ff);
-  color:white;
-  font-size:24px;
+width:64px;
+height:64px;
+border:none;
+border-radius:20px;
+font-size:26px;
+color:white;
+background:linear-gradient(145deg,#5ca8ff,#005eff);
 
-  box-shadow:
-    5px 5px 12px rgba(0,0,0,.2),
-    inset -2px -2px 6px rgba(255,255,255,.3);
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.15),
+-2px -2px 6px rgba(255,255,255,0.3);
 }
 
-/* ===== EXTRA OPTIONS ===== */
-.extra-options{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.extra-card{
-  background:#f4f7fb;
-  padding:20px;
-  border-radius:24px;
-  text-align:center;
-  font-weight:800;
-  color:#23324a;
-
-  box-shadow:
-    6px 6px 14px rgba(0,0,0,.08),
-    -6px -6px 14px rgba(255,255,255,.95);
-  }
 </style>
 </head>
 
@@ -265,22 +267,22 @@ body{
 
 <div class="balance-card">
 
-<div class="small-text">
-🧾 TOTAL BALANCE
+<div class="title">
+💳 TOTAL BALANCE
 </div>
 
 <div class="balance-box">
-₹7.00
+<div class="balance">₹7.00</div>
 </div>
 
-<div class="top-buttons">
+<div class="top-row">
 <button class="top-btn blue">INSTANT PAYMENT</button>
 <button class="top-btn red">LOVE INDIA</button>
 </div>
 
 </div>
 
-<div class="action-row">
+<div class="action-box">
 
 <div class="action-btn">
 👥 REFER
@@ -299,15 +301,35 @@ body{
 <div class="stats">
 
 <div class="stat-card">
-<div class="stat-icon">👥</div>
-<div class="stat-title">TOTAL REFERRALS</div>
-<div class="stat-value">0</div>
+
+<div class="icon">
+👥
+</div>
+
+<div class="stat-title">
+TOTAL REFERRALS
+</div>
+
+<div class="stat-value">
+0
+</div>
+
 </div>
 
 <div class="stat-card">
-<div class="stat-icon">🎁</div>
-<div class="stat-title">PER INVITE</div>
-<div class="stat-value">₹3</div>
+
+<div class="icon">
+🎁
+</div>
+
+<div class="stat-title">
+PER INVITE
+</div>
+
+<div class="stat-value">
+₹3
+</div>
+
 </div>
 
 </div>
@@ -319,12 +341,14 @@ Invite & Earn
 </div>
 
 <div class="refer-text">
-Share your link and earn <span style="color:#2563eb;">₹3 instantly</span> for every friend who joins!
+Share your link and earn ₹3 instantly for every friend who joins!
 </div>
 
 <div class="link-box">
 
-<input class="link-input" value="https://t.me/cashhungama_bot?start=728" readonly>
+<div class="link">
+https://t.me/cashhungama_bot?start=728
+</div>
 
 <button class="copy-btn">
 📋
@@ -335,4 +359,4 @@ Share your link and earn <span style="color:#2563eb;">₹3 instantly</span> for 
 </div>
 
 </body>
-</html>
+  </html>
