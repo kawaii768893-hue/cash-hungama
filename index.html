@@ -1,241 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cash Hungama</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
 body{
-background:#070816;
-overflow:hidden;
-color:white;
-height:100vh;
+margin:0;
+font-family:sans-serif;
+background:#edf1f7;
+color:#1f2937;
 }
 
-.bg{
-position:absolute;
-width:100%;
-height:100%;
-background:
-linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-background-size:40px 40px;
-animation:bgmove 8s linear infinite;
-}
-
-@keyframes bgmove{
-0%{transform:translateY(0);}
-100%{transform:translateY(40px);}
-}
-
-.glow{
-position:absolute;
-width:300px;
-height:300px;
-background:#6c3bff;
-filter:blur(120px);
-opacity:0.35;
-top:-80px;
-left:-80px;
-}
-
-.glow2{
-position:absolute;
-width:300px;
-height:300px;
-background:#00ffd5;
-filter:blur(120px);
-opacity:0.25;
-bottom:-80px;
-right:-80px;
-}
-
-.container{
-position:relative;
-z-index:2;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+.header{
 padding:20px;
+font-size:32px;
+font-weight:bold;
+}
+
+.page{
+display:none;
+padding:15px;
+}
+
+.active{
+display:block;
 }
 
 .card{
-width:100%;
-max-width:390px;
-background:rgba(255,255,255,0.04);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,0.08);
-border-radius:30px;
-padding:35px 25px;
+background:white;
+border-radius:25px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.balance{
+font-size:60px;
+font-weight:bold;
 text-align:center;
-box-shadow:0 0 40px rgba(0,0,0,0.5);
-animation:fade 1s ease;
+margin:20px 0;
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.logo{
-font-size:38px;
-font-weight:700;
-margin-bottom:10px;
-background:linear-gradient(90deg,#8a5cff,#00ffd5);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.subtitle{
-font-size:14px;
-color:#bbb;
-margin-bottom:30px;
-}
-
-.verify-box{
-margin-top:20px;
-padding:22px;
-border-radius:22px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.06);
-}
-
-.loader{
-width:90px;
-height:90px;
-border-radius:50%;
-border:6px solid rgba(255,255,255,0.08);
-border-top:6px solid #8a5cff;
-margin:0 auto 25px;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{
-transform:rotate(360deg);
-}
-}
-
-.status{
-font-size:22px;
-font-weight:600;
-margin-bottom:10px;
-}
-
-.desc{
-font-size:14px;
-color:#aaa;
-line-height:1.6;
-}
-
-.done{
-display:none;
-animation:fade 1s ease;
-}
-
-.check{
-width:90px;
-height:90px;
-border-radius:50%;
-background:linear-gradient(135deg,#00ffae,#00ffd5);
+.row{
 display:flex;
-justify-content:center;
-align-items:center;
-font-size:42px;
-margin:0 auto 25px;
-box-shadow:0 0 35px rgba(0,255,174,0.5);
+gap:10px;
 }
 
 .btn{
-margin-top:30px;
-width:100%;
-padding:17px;
+flex:1;
+padding:18px;
 border:none;
 border-radius:18px;
-font-size:17px;
-font-weight:600;
-background:linear-gradient(90deg,#7a5cff,#00ffd5);
+font-size:20px;
+font-weight:bold;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stat{
+flex:1;
+background:white;
+padding:25px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.stat h1{
+font-size:50px;
+margin:10px 0;
+}
+
+.linkbox{
+display:flex;
+background:#f3f4f6;
+border-radius:15px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.linkbox input{
+flex:1;
+padding:18px;
+border:none;
+background:none;
+font-size:16px;
+}
+
+.copy{
+background:#3b82f6;
 color:white;
-cursor:pointer;
-transition:0.3s;
+border:none;
+padding:18px;
+font-weight:bold;
 }
 
-.btn:hover{
-transform:scale(1.03);
+.back{
+margin-bottom:20px;
+padding:12px 20px;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+background:black;
+color:white;
 }
 
-.footer{
-margin-top:25px;
-font-size:12px;
-color:#777;
+.input{
+width:100%;
+padding:18px;
+margin-top:15px;
+border:none;
+border-radius:15px;
+background:#f3f4f6;
+font-size:18px;
+box-sizing:border-box;
+}
+
+.withdrawbtn{
+width:100%;
+padding:18px;
+margin-top:20px;
+border:none;
+border-radius:18px;
+font-size:22px;
+font-weight:bold;
+background:#10b981;
+color:white;
+}
+
+.history-item{
+background:white;
+padding:18px;
+border-radius:18px;
+margin-top:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 </style>
 </head>
+
 <body>
 
-<div class="bg"></div>
-<div class="glow"></div>
-<div class="glow2"></div>
+<div class="header">
+Cash Hungama 🔥
+</div>
 
-<div class="container">
+<!-- HOME -->
+<div id="home" class="page active">
+
+<div class="card">
+<div style="font-size:18px;">TOTAL BALANCE</div>
+
+<div class="balance">₹7.00</div>
+
+<div class="row">
+<button class="btn">INSTANT PAYMENT</button>
+<button class="btn">LOVE INDIA</button>
+</div>
+</div>
+
+<div class="card">
+<div class="row">
+<button class="btn" onclick="showPage('refer')">👥 REFER</button>
+<button class="btn" onclick="showPage('history')">🕘 HISTORY</button>
+<button class="btn" onclick="showPage('withdraw')">⚡ PAYOUT</button>
+</div>
+</div>
+
+<div class="row">
+<div class="stat">
+<div>👥 TOTAL REFERRALS</div>
+<h1>0</h1>
+</div>
+
+<div class="stat">
+<div>🎁 PER INVITE</div>
+<h1>₹3</h1>
+</div>
+</div>
+
+</div>
+
+<!-- REFER PAGE -->
+<div id="refer" class="page">
+
+<button class="back" onclick="showPage('home')">← Back</button>
+
+<div class="card">
+<h1>Invite & Earn</h1>
+
+<p>Share your link and earn ₹3 instantly for every friend who joins!</p>
+
+<div class="linkbox">
+<input id="refLink" value="https://t.me/cashhungama_bot?start=728" readonly>
+<button class="copy" onclick="copyLink()">COPY</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- WITHDRAW PAGE -->
+<div id="withdraw" class="page">
+
+<button class="back" onclick="showPage('home')">← Back</button>
 
 <div class="card">
 
-<div class="logo">Cash Hungama</div>
-<div class="subtitle">Telegram Mini App Verification</div>
+<h1>Payout Request</h1>
 
-<div class="verify-box" id="loadingBox">
+<input class="input" placeholder="Enter Amount">
 
-<div class="loader"></div>
+<input class="input" placeholder="UPI ID">
 
-<div class="status" id="statusText">
-Verifying Device...
-</div>
-
-<div class="desc" id="descText">
-Please wait while we securely verify your Telegram account and device.
-</div>
-
-</div>
-
-<div class="verify-box done" id="doneBox">
-
-<div class="check">✓</div>
-
-<div class="status">
-Verification Complete
-</div>
-
-<div class="desc">
-Your device has been verified successfully.<br>
-You can now continue to Cash Hungama.
-</div>
-
-<button class="btn" onclick="openApp()">
-OPEN CASH HUNGAMA
+<button class="withdrawbtn">
+Withdraw Now
 </button>
 
 </div>
 
-<div class="footer">
-Secured by Telegram WebApp Security
+</div>
+
+<!-- HISTORY PAGE -->
+<div id="history" class="page">
+
+<button class="back" onclick="showPage('home')">← Back</button>
+
+<div class="card">
+<h1>History</h1>
+
+<div class="history-item">
+Referral Bonus +₹3
+</div>
+
+<div class="history-item">
+Daily Bonus +₹1
 </div>
 
 </div>
@@ -244,40 +245,25 @@ Secured by Telegram WebApp Security
 
 <script>
 
-let texts = [
-"Checking Telegram Account...",
-"Verifying Device...",
-"Checking Channel Membership...",
-"Securing Session...",
-"Finalizing Verification..."
-];
+function showPage(page){
 
-let i = 0;
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
 
-let interval = setInterval(() => {
-
-document.getElementById("statusText").innerText = texts[i];
-
-i++;
-
-if(i >= texts.length){
-
-clearInterval(interval);
-
-setTimeout(() => {
-
-document.getElementById("loadingBox").style.display="none";
-document.getElementById("doneBox").style.display="block";
-
-},1000);
+document.getElementById(page).classList.add("active");
 
 }
 
-},1800);
+function copyLink(){
 
-function openApp(){
+let copyText=document.getElementById("refLink");
 
-window.location.href="https://kawaii768893-hue.github.io/cash-hungama/app.html";
+copyText.select();
+
+document.execCommand("copy");
+
+alert("Referral Link Copied");
 
 }
 
