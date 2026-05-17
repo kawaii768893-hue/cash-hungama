@@ -471,8 +471,7 @@ TOTAL BALANCE
 </div>
 
 <div class="balance-box">
-<div class="balance" id="balance">
-₹0
+<div class="balance" id="balance">₹7.00</div>
 </div>
 <div class="top-row">
 <button class="top-btn blue">INSTANT PAYMENT</button>
@@ -510,7 +509,7 @@ TOTAL REFERRALS
 </div>
 
 <div class="stat-value">
-0
+<div class="stat-value" id="referrals">0</div>
 </div>
 
 </div>
@@ -572,6 +571,51 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+  <script type="module">
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+let userId = localStorage.getItem("userId");
+
+if (!userId) {
+  userId = "user_" + Math.floor(Math.random() * 999999999);
+  localStorage.setItem("userId", userId);
+}
+
+async function loadUser() {
+
+  const userRef = doc(db, "users", userId);
+
+  const snap = await getDoc(userRef);
+
+  if (!snap.exists()) {
+
+    await setDoc(userRef, {
+      balance: 7,
+      referrals: 0
+    });
+
+  }
+
+  const data = (await getDoc(userRef)).data();
+
+  document.getElementById("balance").innerText =
+    "₹" + data.balance.toFixed(2);
+
+  document.getElementById("referrals").innerText =
+    data.referrals;
+}
+
+loadUser();
+
+</script>
 
 console.log("Firebase Connected 🔥");
 </script>
