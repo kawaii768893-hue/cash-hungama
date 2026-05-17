@@ -556,6 +556,24 @@ https://t.me/cashhungama_bot?start=728
 </div>
 
 </div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCy64nXc6dQ3vyxCgHjVI_IhzhQ5cxXyf8",
+  authDomain: "cash-hungama-ec64e.firebaseapp.com",
+  projectId: "cash-hungama-ec64e",
+  storageBucket: "cash-hungama-ec64e.firebasestorage.app",
+  messagingSenderId: "1073040348802",
+  appId: "1:1073040348802:web:82e1b2422916b5d6e3469b",
+  measurementId: "G-3MHFXCNQT1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+console.log("Firebase Connected 🔥");
+</script>
 </body>
   </html>
