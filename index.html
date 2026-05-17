@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Eagle Fand 🔥</title>
+<title>Eagle Fan</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -15,138 +15,141 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+-webkit-tap-highlight-color:transparent;
 }
 
 body{
 background:#edf2f7;
 max-width:430px;
 margin:auto;
-padding:16px;
-color:#1e293b;
+padding:14px;
 overflow-x:hidden;
+color:#0f172a;
 }
 
-/* TOP */
+/* ===== TOP ===== */
 
 .topbar{
 display:flex;
-align-items:center;
 justify-content:space-between;
-margin-bottom:20px;
+align-items:center;
+margin-bottom:18px;
 }
 
-.topbar-left{
+.top-left{
 display:flex;
 align-items:center;
-gap:14px;
+gap:12px;
 font-size:18px;
 font-weight:700;
 }
 
-.topicon{
-font-size:30px;
+.close{
+font-size:28px;
+font-weight:400;
 }
 
 .menu{
 font-size:28px;
 }
 
-/* WELCOME */
+/* ===== USER ===== */
 
-.welcome{
+.user-box{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:22px;
+margin-bottom:18px;
 }
 
-.welcome small{
-font-size:13px;
+.welcome{
+font-size:11px;
 font-weight:700;
-color:#94a3b8;
 letter-spacing:2px;
+color:#94a3b8;
+margin-bottom:4px;
 }
 
-.welcome h1{
-font-size:52px;
+.username{
+font-size:46px;
 font-weight:800;
 line-height:1;
-color:#14213d;
+letter-spacing:-1px;
 }
 
-.profile{
-width:66px;
-height:66px;
+.avatar{
+width:62px;
+height:62px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:32px;
+font-size:28px;
 background:#edf2f7;
 
 box-shadow:
-8px 8px 18px rgba(0,0,0,0.08),
--8px -8px 18px rgba(255,255,255,0.95);
+7px 7px 18px rgba(0,0,0,.08),
+-7px -7px 18px rgba(255,255,255,.96);
 }
 
-/* BALANCE CARD */
+/* ===== CARD ===== */
 
 .balance-card{
+padding:18px;
+border-radius:34px;
 background:#edf2f7;
-padding:22px;
-border-radius:36px;
 
 box-shadow:
-12px 12px 26px rgba(0,0,0,0.08),
--12px -12px 26px rgba(255,255,255,0.96);
+10px 10px 24px rgba(0,0,0,.08),
+-10px -10px 24px rgba(255,255,255,.98);
 
-margin-bottom:22px;
-}
-
-.title{
-font-size:13px;
-font-weight:800;
-letter-spacing:2px;
-color:#7b8794;
 margin-bottom:18px;
 }
 
+.card-title{
+font-size:12px;
+font-weight:800;
+letter-spacing:2px;
+color:#7b8794;
+margin-bottom:16px;
+}
+
 .balance-box{
-padding:24px;
-border-radius:28px;
+padding:24px 10px;
+border-radius:26px;
 text-align:center;
 background:#edf2f7;
 
 box-shadow:
-inset 5px 5px 10px rgba(0,0,0,0.05),
-inset -5px -5px 10px rgba(255,255,255,0.96);
+inset 5px 5px 10px rgba(0,0,0,.05),
+inset -5px -5px 10px rgba(255,255,255,.95);
 }
 
 .balance{
-font-size:74px;
+font-size:68px;
 font-weight:800;
 color:#14213d;
-text-shadow:2px 2px 4px rgba(0,0,0,0.08);
+line-height:1;
 }
 
-.top-row{
+.top-buttons{
 display:flex;
-gap:14px;
-margin-top:18px;
+gap:10px;
+margin-top:16px;
 }
 
 .top-btn{
 flex:1;
-padding:14px;
+padding:13px;
 border:none;
-border-radius:18px;
-font-size:14px;
-font-weight:700;
+border-radius:16px;
 background:#edf2f7;
+font-size:13px;
+font-weight:700;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,0.08),
--5px -5px 12px rgba(255,255,255,0.95);
+5px 5px 10px rgba(0,0,0,.08),
+-5px -5px 10px rgba(255,255,255,.96);
 }
 
 .blue{
@@ -157,125 +160,124 @@ color:#2563eb;
 color:#ef4444;
 }
 
-/* ACTIONS */
+/* ===== ACTIONS ===== */
 
 .actions{
 display:flex;
-gap:12px;
-padding:12px;
-border-radius:24px;
-margin-bottom:22px;
+gap:10px;
+padding:10px;
+border-radius:22px;
+margin-bottom:18px;
 background:#edf2f7;
 
 box-shadow:
-8px 8px 18px rgba(0,0,0,0.08),
--8px -8px 18px rgba(255,255,255,0.95);
+8px 8px 18px rgba(0,0,0,.08),
+-8px -8px 18px rgba(255,255,255,.96);
 }
 
 .action-btn{
 flex:1;
-padding:18px 10px;
-border-radius:20px;
+padding:16px 8px;
+border-radius:18px;
 text-align:center;
-font-size:15px;
+font-size:13px;
 font-weight:700;
 background:#edf2f7;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,0.08),
--5px -5px 12px rgba(255,255,255,0.95);
+5px 5px 10px rgba(0,0,0,.08),
+-5px -5px 10px rgba(255,255,255,.96);
 }
 
-/* RECENT ACTIVITY */
+/* ===== RECENT ===== */
 
 .activity-card{
-padding:22px;
-border-radius:36px;
+padding:18px;
+border-radius:34px;
 background:#edf2f7;
 
 box-shadow:
-12px 12px 24px rgba(0,0,0,0.08),
--12px -12px 24px rgba(255,255,255,0.96);
+10px 10px 24px rgba(0,0,0,.08),
+-10px -10px 24px rgba(255,255,255,.98);
 }
 
 .activity-title{
-font-size:20px;
+font-size:18px;
 font-weight:800;
-margin-bottom:18px;
-color:#14213d;
+margin-bottom:16px;
 }
 
 .line{
 height:1px;
-background:#d7dee7;
-margin-bottom:20px;
+background:#d9e1ea;
+margin-bottom:16px;
 }
 
 .activity-item{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px;
-border-radius:26px;
+padding:16px;
+border-radius:24px;
 background:#edf2f7;
 
 box-shadow:
-inset 2px 2px 4px rgba(0,0,0,0.04),
-inset -2px -2px 4px rgba(255,255,255,0.96);
+inset 2px 2px 5px rgba(0,0,0,.04),
+inset -2px -2px 5px rgba(255,255,255,.96);
 }
 
 .activity-left{
 display:flex;
 align-items:center;
-gap:16px;
+gap:14px;
 }
 
 .activity-icon{
-width:66px;
-height:66px;
+width:58px;
+height:58px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
+font-size:26px;
 color:#00a86b;
 background:#edf2f7;
 
 box-shadow:
-6px 6px 12px rgba(0,0,0,0.08),
--6px -6px 12px rgba(255,255,255,0.95);
+5px 5px 10px rgba(0,0,0,.08),
+-5px -5px 10px rgba(255,255,255,.96);
 }
 
 .activity-name{
-font-size:18px;
+font-size:16px;
 font-weight:700;
 }
 
 .activity-time{
-font-size:12px;
+font-size:11px;
 font-weight:600;
 color:#6b7280;
 margin-top:3px;
 }
 
 .activity-amount{
-font-size:24px;
+font-size:20px;
 font-weight:800;
 color:#00a86b;
 }
 
-/* ANIMATION */
+/* ===== ANIMATION ===== */
 
 .balance-card,
 .actions,
 .activity-card{
-animation:up .7s ease;
+animation:up .6s ease;
 }
 
 @keyframes up{
 from{
 opacity:0;
-transform:translateY(25px);
+transform:translateY(18px);
 }
 to{
 opacity:1;
@@ -283,14 +285,9 @@ transform:translateY(0);
 }
 }
 
-button{
-cursor:pointer;
-transition:.25s;
-}
-
-button:active,
-.action-btn:active{
-transform:scale(.95);
+.action-btn:active,
+.top-btn:active{
+transform:scale(.96);
 }
 
 </style>
@@ -298,12 +295,12 @@ transform:scale(.95);
 
 <body>
 
-<!-- TOPBAR -->
+<!-- TOP -->
 
 <div class="topbar">
 
-<div class="topbar-left">
-<div class="topicon">✕</div>
+<div class="top-left">
+<div class="close">✕</div>
 <div>Eagle Fand 🔥</div>
 </div>
 
@@ -311,17 +308,22 @@ transform:scale(.95);
 
 </div>
 
-<!-- WELCOME -->
+<!-- USER -->
 
-<div class="welcome">
+<div class="user-box">
 
 <div>
-<small>WELCOME BACK</small>
-<h1>Kaito 👋</h1>
+<div class="welcome">
+WELCOME BACK
 </div>
 
-<div class="profile">
-🧑‍💻
+<div class="username">
+Kaito 👋
+</div>
+</div>
+
+<div class="avatar">
+🧑🏻‍💻
 </div>
 
 </div>
@@ -330,19 +332,19 @@ transform:scale(.95);
 
 <div class="balance-card">
 
-<div class="title">
+<div class="card-title">
 💳 TOTAL BALANCE
 </div>
 
 <div class="balance-box">
 
-<div class="balance" id="balance">
+<div class="balance">
 ₹7.00
 </div>
 
 </div>
 
-<div class="top-row">
+<div class="top-buttons">
 
 <button class="top-btn blue">
 INSTANT PAYMENT
@@ -374,7 +376,7 @@ LOVE INDIA
 
 </div>
 
-<!-- ACTIVITY -->
+<!-- RECENT -->
 
 <div class="activity-card">
 
@@ -413,30 +415,6 @@ Bonus
 </div>
 
 </div>
-
-<script>
-
-let count = 0;
-
-let target = 7;
-
-let balance = document.getElementById("balance");
-
-let counter = setInterval(()=>{
-
-count++;
-
-balance.innerHTML = "₹" + count + ".00";
-
-if(count >= target){
-
-clearInterval(counter);
-
-}
-
-},120);
-
-</script>
 
 </body>
   </html>
