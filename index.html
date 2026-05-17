@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eagle Fand</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Eagle Fand 🔥</title>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,91 +18,115 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#edf2f8;
+background:#edf2f7;
 max-width:430px;
 margin:auto;
-padding:18px;
-color:#14213d;
+padding:16px;
+color:#1e293b;
 overflow-x:hidden;
 }
 
-/* ===== TOP ===== */
+/* TOP */
 
-.top{
+.topbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.topbar-left{
+display:flex;
+align-items:center;
+gap:14px;
+font-size:18px;
+font-weight:700;
+}
+
+.topicon{
+font-size:30px;
+}
+
+.menu{
+font-size:28px;
+}
+
+/* WELCOME */
+
+.welcome{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:25px;
-animation:fade .7s ease;
+margin-bottom:22px;
 }
 
-.welcome{
-font-size:16px;
+.welcome small{
+font-size:13px;
 font-weight:700;
+color:#94a3b8;
 letter-spacing:2px;
-color:#8b95a7;
 }
 
-.name{
-font-size:54px;
+.welcome h1{
+font-size:52px;
 font-weight:800;
-font-style:italic;
 line-height:1;
+color:#14213d;
 }
 
-.avatar{
-width:72px;
-height:72px;
+.profile{
+width:66px;
+height:66px;
 border-radius:50%;
-background:#eef3f9;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:32px;
+background:#edf2f7;
 
 box-shadow:
-10px 10px 22px rgba(0,0,0,.08),
--10px -10px 22px rgba(255,255,255,.95);
+8px 8px 18px rgba(0,0,0,0.08),
+-8px -8px 18px rgba(255,255,255,0.95);
 }
 
-/* ===== CARD ===== */
+/* BALANCE CARD */
 
 .balance-card{
-background:#eef3f9;
-padding:24px;
-border-radius:38px;
-margin-top:10px;
+background:#edf2f7;
+padding:22px;
+border-radius:36px;
 
 box-shadow:
-12px 12px 25px rgba(0,0,0,.08),
--12px -12px 25px rgba(255,255,255,.95);
+12px 12px 26px rgba(0,0,0,0.08),
+-12px -12px 26px rgba(255,255,255,0.96);
 
-animation:up .7s ease;
+margin-bottom:22px;
 }
 
 .title{
-font-size:14px;
+font-size:13px;
 font-weight:800;
 letter-spacing:2px;
-color:#7c8799;
-margin-bottom:20px;
+color:#7b8794;
+margin-bottom:18px;
 }
 
 .balance-box{
-padding:28px;
-border-radius:30px;
+padding:24px;
+border-radius:28px;
 text-align:center;
-background:#eef3f9;
+background:#edf2f7;
 
 box-shadow:
-inset 6px 6px 14px rgba(0,0,0,.06),
-inset -6px -6px 14px rgba(255,255,255,.95);
+inset 5px 5px 10px rgba(0,0,0,0.05),
+inset -5px -5px 10px rgba(255,255,255,0.96);
 }
 
 .balance{
 font-size:74px;
 font-weight:800;
-color:#0f172a;
+color:#14213d;
+text-shadow:2px 2px 4px rgba(0,0,0,0.08);
 }
 
 .top-row{
@@ -119,11 +142,11 @@ border:none;
 border-radius:18px;
 font-size:14px;
 font-weight:700;
-background:#eef3f9;
+background:#edf2f7;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,.08),
--5px -5px 12px rgba(255,255,255,.95);
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.95);
 }
 
 .blue{
@@ -134,221 +157,119 @@ color:#2563eb;
 color:#ef4444;
 }
 
-/* ===== ACTIONS ===== */
+/* ACTIONS */
 
 .actions{
 display:flex;
 gap:12px;
-margin-top:22px;
 padding:12px;
-border-radius:28px;
-background:#eef3f9;
+border-radius:24px;
+margin-bottom:22px;
+background:#edf2f7;
 
 box-shadow:
-8px 8px 18px rgba(0,0,0,.08),
--8px -8px 18px rgba(255,255,255,.95);
+8px 8px 18px rgba(0,0,0,0.08),
+-8px -8px 18px rgba(255,255,255,0.95);
 }
 
 .action-btn{
 flex:1;
 padding:18px 10px;
-border-radius:22px;
+border-radius:20px;
+text-align:center;
 font-size:15px;
+font-weight:700;
+background:#edf2f7;
+
+box-shadow:
+5px 5px 12px rgba(0,0,0,0.08),
+-5px -5px 12px rgba(255,255,255,0.95);
+}
+
+/* RECENT ACTIVITY */
+
+.activity-card{
+padding:22px;
+border-radius:36px;
+background:#edf2f7;
+
+box-shadow:
+12px 12px 24px rgba(0,0,0,0.08),
+-12px -12px 24px rgba(255,255,255,0.96);
+}
+
+.activity-title{
+font-size:20px;
 font-weight:800;
-text-align:center;
-background:#eef3f9;
-cursor:pointer;
-transition:.25s;
-
-box-shadow:
-5px 5px 12px rgba(0,0,0,.08),
--5px -5px 12px rgba(255,255,255,.95);
+margin-bottom:18px;
+color:#14213d;
 }
 
-.action-btn:active{
-transform:scale(.93);
+.line{
+height:1px;
+background:#d7dee7;
+margin-bottom:20px;
 }
 
-/* ===== STATS ===== */
-
-.stats{
+.activity-item{
 display:flex;
-gap:16px;
-margin-top:22px;
-}
-
-.stat-card{
-flex:1;
-padding:24px;
-border-radius:30px;
-text-align:center;
-background:#eef3f9;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border-radius:26px;
+background:#edf2f7;
 
 box-shadow:
-10px 10px 22px rgba(0,0,0,.08),
--10px -10px 22px rgba(255,255,255,.95);
+inset 2px 2px 4px rgba(0,0,0,0.04),
+inset -2px -2px 4px rgba(255,255,255,0.96);
 }
 
-.icon{
-width:72px;
-height:72px;
-margin:auto;
-margin-bottom:16px;
+.activity-left{
+display:flex;
+align-items:center;
+gap:16px;
+}
+
+.activity-icon{
+width:66px;
+height:66px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:30px;
-background:#eef3f9;
+font-size:28px;
+color:#00a86b;
+background:#edf2f7;
 
 box-shadow:
-5px 5px 12px rgba(0,0,0,.08),
--5px -5px 12px rgba(255,255,255,.95);
+6px 6px 12px rgba(0,0,0,0.08),
+-6px -6px 12px rgba(255,255,255,0.95);
 }
 
-.stat-title{
-font-size:13px;
+.activity-name{
+font-size:18px;
 font-weight:700;
-letter-spacing:1px;
-color:#7c8799;
 }
 
-.stat-value{
-font-size:54px;
-font-weight:800;
-margin-top:10px;
-}
-
-/* ===== REFER ===== */
-
-.refer-card,
-.history-card,
-.withdraw-card{
-margin-top:24px;
-padding:26px;
-border-radius:34px;
-background:#eef3f9;
-
-box-shadow:
-10px 10px 22px rgba(0,0,0,.08),
--10px -10px 22px rgba(255,255,255,.95);
-
-animation:fade .5s ease;
-}
-
-.refer-title{
-font-size:34px;
-font-weight:800;
-text-align:center;
-margin-bottom:12px;
-}
-
-.refer-text{
-text-align:center;
-font-size:16px;
-line-height:1.7;
+.activity-time{
+font-size:12px;
 font-weight:600;
-color:#4b5563;
+color:#6b7280;
+margin-top:3px;
 }
 
-.link-box{
-margin-top:24px;
-padding:10px;
-display:flex;
-align-items:center;
-gap:10px;
-border-radius:24px;
-background:#eef3f9;
-
-box-shadow:
-inset 5px 5px 10px rgba(0,0,0,.06),
-inset -5px -5px 10px rgba(255,255,255,.95);
-}
-
-.link{
-flex:1;
-padding:14px;
-font-size:14px;
-white-space:nowrap;
-overflow:hidden;
-}
-
-.copy-btn{
-width:64px;
-height:64px;
-border:none;
-border-radius:20px;
-font-size:26px;
-color:white;
-background:linear-gradient(145deg,#5ca8ff,#005eff);
-
-box-shadow:
-5px 5px 12px rgba(0,0,0,.15);
-}
-
-/* ===== HISTORY ===== */
-
-.history-title{
+.activity-amount{
 font-size:24px;
 font-weight:800;
-margin-bottom:18px;
-}
-
-.activity{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:24px;
-border-radius:28px;
-background:#eef3f9;
-
-box-shadow:
-inset 5px 5px 10px rgba(0,0,0,.06),
-inset -5px -5px 10px rgba(255,255,255,.95);
-}
-
-.green{
 color:#00a86b;
-font-size:22px;
-font-weight:800;
 }
 
-/* ===== WITHDRAW ===== */
+/* ANIMATION */
 
-.withdraw-btn{
-width:100%;
-padding:20px;
-margin-top:24px;
-border:none;
-border-radius:24px;
-font-size:18px;
-font-weight:800;
-color:white;
-background:linear-gradient(145deg,#4ea0ff,#005eff);
-
-box-shadow:
-5px 5px 12px rgba(0,0,0,.15);
-}
-
-/* ===== HIDE ===== */
-
-.section{
-display:none;
-}
-
-.active{
-display:block;
-}
-
-/* ===== ANIMATION ===== */
-
-@keyframes fade{
-from{
-opacity:0;
-}
-to{
-opacity:1;
-}
+.balance-card,
+.actions,
+.activity-card{
+animation:up .7s ease;
 }
 
 @keyframes up{
@@ -362,21 +283,46 @@ transform:translateY(0);
 }
 }
 
+button{
+cursor:pointer;
+transition:.25s;
+}
+
+button:active,
+.action-btn:active{
+transform:scale(.95);
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- TOP -->
+<!-- TOPBAR -->
 
-<div class="top">
+<div class="topbar">
 
-<div>
-<div class="welcome">WELCOME BACK</div>
-<div class="name" id="tgName">Kaito 👋</div>
+<div class="topbar-left">
+<div class="topicon">✕</div>
+<div>Eagle Fand 🔥</div>
 </div>
 
-<div class="avatar">🧑🏻‍💻</div>
+<div class="menu">⋮</div>
+
+</div>
+
+<!-- WELCOME -->
+
+<div class="welcome">
+
+<div>
+<small>WELCOME BACK</small>
+<h1>Kaito 👋</h1>
+</div>
+
+<div class="profile">
+🧑‍💻
+</div>
 
 </div>
 
@@ -384,15 +330,28 @@ transform:translateY(0);
 
 <div class="balance-card">
 
-<div class="title">💳 TOTAL BALANCE</div>
+<div class="title">
+💳 TOTAL BALANCE
+</div>
 
 <div class="balance-box">
-<div class="balance" id="balance">₹7.00</div>
+
+<div class="balance" id="balance">
+₹7.00
+</div>
+
 </div>
 
 <div class="top-row">
-<button class="top-btn blue">INSTANT PAYMENT</button>
-<button class="top-btn red">LOVE INDIA</button>
+
+<button class="top-btn blue">
+INSTANT PAYMENT
+</button>
+
+<button class="top-btn red">
+LOVE INDIA
+</button>
+
 </div>
 
 </div>
@@ -401,122 +360,55 @@ transform:translateY(0);
 
 <div class="actions">
 
-<div class="action-btn" onclick="showSection('home')">
+<div class="action-btn">
 👥 REFER
 </div>
 
-<div class="action-btn" onclick="showSection('history')">
+<div class="action-btn">
 🕘 HISTORY
 </div>
 
-<div class="action-btn" onclick="showSection('withdraw')">
+<div class="action-btn">
 ⚡ PAYOUT
 </div>
 
 </div>
 
-<!-- HOME -->
+<!-- ACTIVITY -->
 
-<div id="home" class="section active">
+<div class="activity-card">
 
-<div class="stats">
-
-<div class="stat-card">
-<div class="icon">👥</div>
-<div class="stat-title">TOTAL REFERRALS</div>
-<div class="stat-value" id="referrals">0</div>
+<div class="activity-title">
+☰ Recent Activity
 </div>
 
-<div class="stat-card">
-<div class="icon">🎁</div>
-<div class="stat-title">PER INVITE</div>
-<div class="stat-value">₹3</div>
-</div>
+<div class="line"></div>
 
-</div>
+<div class="activity-item">
 
-<div class="refer-card">
+<div class="activity-left">
 
-<div class="refer-title">Invite & Earn</div>
-
-<div class="refer-text">
-Share your link and earn ₹3 instantly for every friend who joins!
-</div>
-
-<div class="link-box">
-
-<div class="link">
-https://t.me/Eagle_FanBot?start=728
-</div>
-
-<button class="copy-btn">📋</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- HISTORY -->
-
-<div id="history" class="section">
-
-<div class="history-card">
-
-<div class="history-title">📋 Recent Activity</div>
-
-<div class="activity">
-
-<div>
-<div style="font-size:30px;">⬇️</div>
+<div class="activity-icon">
+⬇
 </div>
 
 <div>
-<div style="font-size:20px;font-weight:800;">Bonus</div>
-<div style="color:#7c8799;font-weight:600;">
+
+<div class="activity-name">
+Bonus
+</div>
+
+<div class="activity-time">
 16 MAY 2026, 05:37 PM
 </div>
-</div>
-
-<div class="green">+₹7.00</div>
 
 </div>
 
 </div>
 
+<div class="activity-amount">
++₹7.00
 </div>
-
-<!-- WITHDRAW -->
-
-<div id="withdraw" class="section">
-
-<div class="withdraw-card">
-
-<div class="icon">⚡</div>
-
-<div class="refer-title">Flash Withdraw</div>
-
-<div class="refer-text">
-INSTANTLY TRANSFER TO UPI.
-</div>
-
-<div class="link-box" style="margin-top:28px;display:block;">
-
-<div style="display:flex;justify-content:space-between;margin-bottom:18px;">
-<span>PAYMENT MIN</span>
-<b>₹10.00</b>
-</div>
-
-<div style="display:flex;justify-content:space-between;">
-<span>SPEED</span>
-<b>Instant</b>
-</div>
-
-</div>
-
-<button class="withdraw-btn">
-OPEN WITHDRAW PANEL
-</button>
 
 </div>
 
@@ -524,30 +416,25 @@ OPEN WITHDRAW PANEL
 
 <script>
 
-function showSection(id){
+let count = 0;
 
-document.querySelectorAll(".section").forEach(sec=>{
-sec.classList.remove("active");
-});
+let target = 7;
 
-document.getElementById(id).classList.add("active");
+let balance = document.getElementById("balance");
 
-}
+let counter = setInterval(()=>{
 
-/* ===== TELEGRAM NAME ===== */
+count++;
 
-if(window.Telegram){
+balance.innerHTML = "₹" + count + ".00";
 
-let user = Telegram.WebApp.initDataUnsafe.user;
+if(count >= target){
 
-if(user){
-
-document.getElementById("tgName").innerHTML =
-user.first_name + " 👋";
+clearInterval(counter);
 
 }
 
-}
+},120);
 
 </script>
 
