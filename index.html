@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cash Hungama</title>
+<title>Eagle Fand</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <style>
 
@@ -20,54 +22,78 @@ body{
 background:#edf2f8;
 max-width:430px;
 margin:auto;
-padding:16px;
+padding:18px;
+color:#14213d;
 overflow-x:hidden;
-color:#1e293b;
 }
 
-/* ===== BALANCE CARD ===== */
+/* ===== TOP ===== */
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+animation:fade .7s ease;
+}
+
+.welcome{
+font-size:16px;
+font-weight:700;
+letter-spacing:2px;
+color:#8b95a7;
+}
+
+.name{
+font-size:54px;
+font-weight:800;
+font-style:italic;
+line-height:1;
+}
+
+.avatar{
+width:72px;
+height:72px;
+border-radius:50%;
+background:#eef3f9;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+
+box-shadow:
+10px 10px 22px rgba(0,0,0,.08),
+-10px -10px 22px rgba(255,255,255,.95);
+}
+
+/* ===== CARD ===== */
 
 .balance-card{
 background:#eef3f9;
+padding:24px;
 border-radius:38px;
-padding:22px;
-position:relative;
-overflow:hidden;
+margin-top:10px;
 
 box-shadow:
 12px 12px 25px rgba(0,0,0,.08),
 -12px -12px 25px rgba(255,255,255,.95);
-}
 
-.balance-card::before{
-content:'';
-position:absolute;
-top:-80px;
-left:-60px;
-width:240px;
-height:160px;
-background:rgba(255,255,255,.5);
-transform:rotate(-15deg);
-border-radius:40px;
+animation:up .7s ease;
 }
 
 .title{
 font-size:14px;
 font-weight:800;
 letter-spacing:2px;
-color:#6b7280;
+color:#7c8799;
 margin-bottom:20px;
-position:relative;
-z-index:2;
 }
 
 .balance-box{
-background:#eef3f9;
 padding:28px;
-border-radius:28px;
+border-radius:30px;
 text-align:center;
-position:relative;
-z-index:2;
+background:#eef3f9;
 
 box-shadow:
 inset 6px 6px 14px rgba(0,0,0,.06),
@@ -75,9 +101,9 @@ inset -6px -6px 14px rgba(255,255,255,.95);
 }
 
 .balance{
-font-size:72px;
+font-size:74px;
 font-weight:800;
-color:#14213d;
+color:#0f172a;
 }
 
 .top-row{
@@ -91,9 +117,9 @@ flex:1;
 padding:14px;
 border:none;
 border-radius:18px;
-background:#eef3f9;
 font-size:14px;
 font-weight:700;
+background:#eef3f9;
 
 box-shadow:
 5px 5px 12px rgba(0,0,0,.08),
@@ -110,35 +136,37 @@ color:#ef4444;
 
 /* ===== ACTIONS ===== */
 
-.action-box{
+.actions{
+display:flex;
+gap:12px;
 margin-top:22px;
-background:#eef3f9;
 padding:12px;
 border-radius:28px;
+background:#eef3f9;
 
 box-shadow:
 8px 8px 18px rgba(0,0,0,.08),
 -8px -8px 18px rgba(255,255,255,.95);
 }
 
-.actions{
-display:flex;
-gap:12px;
-}
-
 .action-btn{
 flex:1;
-background:#f4f7fb;
 padding:18px 10px;
 border-radius:22px;
-text-align:center;
 font-size:15px;
 font-weight:800;
+text-align:center;
+background:#eef3f9;
 cursor:pointer;
+transition:.25s;
 
 box-shadow:
 5px 5px 12px rgba(0,0,0,.08),
 -5px -5px 12px rgba(255,255,255,.95);
+}
+
+.action-btn:active{
+transform:scale(.93);
 }
 
 /* ===== STATS ===== */
@@ -151,10 +179,10 @@ margin-top:22px;
 
 .stat-card{
 flex:1;
-background:#eef3f9;
-padding:22px;
+padding:24px;
 border-radius:30px;
 text-align:center;
+background:#eef3f9;
 
 box-shadow:
 10px 10px 22px rgba(0,0,0,.08),
@@ -164,9 +192,9 @@ box-shadow:
 .icon{
 width:72px;
 height:72px;
-border-radius:50%;
 margin:auto;
 margin-bottom:16px;
+border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -181,8 +209,8 @@ box-shadow:
 .stat-title{
 font-size:13px;
 font-weight:700;
-color:#6b7280;
 letter-spacing:1px;
+color:#7c8799;
 }
 
 .stat-value{
@@ -191,24 +219,28 @@ font-weight:800;
 margin-top:10px;
 }
 
-/* ===== REFER CARD ===== */
+/* ===== REFER ===== */
 
-.refer-card{
+.refer-card,
+.history-card,
+.withdraw-card{
 margin-top:24px;
-background:#eef3f9;
 padding:26px;
 border-radius:34px;
+background:#eef3f9;
 
 box-shadow:
 10px 10px 22px rgba(0,0,0,.08),
 -10px -10px 22px rgba(255,255,255,.95);
+
+animation:fade .5s ease;
 }
 
 .refer-title{
 font-size:34px;
 font-weight:800;
 text-align:center;
-margin-bottom:14px;
+margin-bottom:12px;
 }
 
 .refer-text{
@@ -221,12 +253,12 @@ color:#4b5563;
 
 .link-box{
 margin-top:24px;
-background:#eef3f9;
-border-radius:24px;
 padding:10px;
 display:flex;
 align-items:center;
 gap:10px;
+border-radius:24px;
+background:#eef3f9;
 
 box-shadow:
 inset 5px 5px 10px rgba(0,0,0,.06),
@@ -239,7 +271,6 @@ padding:14px;
 font-size:14px;
 white-space:nowrap;
 overflow:hidden;
-color:#374151;
 }
 
 .copy-btn{
@@ -250,6 +281,85 @@ border-radius:20px;
 font-size:26px;
 color:white;
 background:linear-gradient(145deg,#5ca8ff,#005eff);
+
+box-shadow:
+5px 5px 12px rgba(0,0,0,.15);
+}
+
+/* ===== HISTORY ===== */
+
+.history-title{
+font-size:24px;
+font-weight:800;
+margin-bottom:18px;
+}
+
+.activity{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:24px;
+border-radius:28px;
+background:#eef3f9;
+
+box-shadow:
+inset 5px 5px 10px rgba(0,0,0,.06),
+inset -5px -5px 10px rgba(255,255,255,.95);
+}
+
+.green{
+color:#00a86b;
+font-size:22px;
+font-weight:800;
+}
+
+/* ===== WITHDRAW ===== */
+
+.withdraw-btn{
+width:100%;
+padding:20px;
+margin-top:24px;
+border:none;
+border-radius:24px;
+font-size:18px;
+font-weight:800;
+color:white;
+background:linear-gradient(145deg,#4ea0ff,#005eff);
+
+box-shadow:
+5px 5px 12px rgba(0,0,0,.15);
+}
+
+/* ===== HIDE ===== */
+
+.section{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fade{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+
+@keyframes up{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 </style>
@@ -257,14 +367,27 @@ background:linear-gradient(145deg,#5ca8ff,#005eff);
 
 <body>
 
-<div class="balance-card">
+<!-- TOP -->
 
-<div class="title">
-💳 TOTAL BALANCE
+<div class="top">
+
+<div>
+<div class="welcome">WELCOME BACK</div>
+<div class="name" id="tgName">Kaito 👋</div>
 </div>
 
+<div class="avatar">🧑🏻‍💻</div>
+
+</div>
+
+<!-- BALANCE -->
+
+<div class="balance-card">
+
+<div class="title">💳 TOTAL BALANCE</div>
+
 <div class="balance-box">
-<div class="balance" id="balance">₹0.00</div>
+<div class="balance" id="balance">₹7.00</div>
 </div>
 
 <div class="top-row">
@@ -274,67 +397,47 @@ background:linear-gradient(145deg,#5ca8ff,#005eff);
 
 </div>
 
-<div class="action-box">
+<!-- ACTIONS -->
 
 <div class="actions">
 
-<div class="action-btn">
+<div class="action-btn" onclick="showSection('home')">
 👥 REFER
 </div>
 
-<div class="action-btn">
+<div class="action-btn" onclick="showSection('history')">
 🕘 HISTORY
 </div>
 
-<div class="action-btn" onclick="openWithdraw()">
+<div class="action-btn" onclick="showSection('withdraw')">
 ⚡ PAYOUT
 </div>
 
 </div>
 
-</div>
+<!-- HOME -->
+
+<div id="home" class="section active">
 
 <div class="stats">
 
 <div class="stat-card">
-
-<div class="icon">
-👥
-</div>
-
-<div class="stat-title">
-TOTAL REFERRALS
-</div>
-
-<div class="stat-value" id="referrals">
-0
-</div>
-
+<div class="icon">👥</div>
+<div class="stat-title">TOTAL REFERRALS</div>
+<div class="stat-value" id="referrals">0</div>
 </div>
 
 <div class="stat-card">
-
-<div class="icon">
-🎁
-</div>
-
-<div class="stat-title">
-PER INVITE
-</div>
-
-<div class="stat-value">
-₹3
-</div>
-
+<div class="icon">🎁</div>
+<div class="stat-title">PER INVITE</div>
+<div class="stat-value">₹3</div>
 </div>
 
 </div>
 
 <div class="refer-card">
 
-<div class="refer-title">
-Invite & Earn
-</div>
+<div class="refer-title">Invite & Earn</div>
 
 <div class="refer-text">
 Share your link and earn ₹3 instantly for every friend who joins!
@@ -343,168 +446,106 @@ Share your link and earn ₹3 instantly for every friend who joins!
 <div class="link-box">
 
 <div class="link">
-https://t.me/cashhungama_bot
+https://t.me/Eagle_FanBot?start=728
 </div>
 
-<button class="copy-btn">
-📋
+<button class="copy-btn">📋</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HISTORY -->
+
+<div id="history" class="section">
+
+<div class="history-card">
+
+<div class="history-title">📋 Recent Activity</div>
+
+<div class="activity">
+
+<div>
+<div style="font-size:30px;">⬇️</div>
+</div>
+
+<div>
+<div style="font-size:20px;font-weight:800;">Bonus</div>
+<div style="color:#7c8799;font-weight:600;">
+16 MAY 2026, 05:37 PM
+</div>
+</div>
+
+<div class="green">+₹7.00</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WITHDRAW -->
+
+<div id="withdraw" class="section">
+
+<div class="withdraw-card">
+
+<div class="icon">⚡</div>
+
+<div class="refer-title">Flash Withdraw</div>
+
+<div class="refer-text">
+INSTANTLY TRANSFER TO UPI.
+</div>
+
+<div class="link-box" style="margin-top:28px;display:block;">
+
+<div style="display:flex;justify-content:space-between;margin-bottom:18px;">
+<span>PAYMENT MIN</span>
+<b>₹10.00</b>
+</div>
+
+<div style="display:flex;justify-content:space-between;">
+<span>SPEED</span>
+<b>Instant</b>
+</div>
+
+</div>
+
+<button class="withdraw-btn">
+OPEN WITHDRAW PANEL
 </button>
 
 </div>
 
 </div>
 
-<!-- WITHDRAW MODAL -->
+<script>
 
-<div id="withdrawModal" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(8px);
-z-index:9999;
-justify-content:center;
-align-items:center;
-">
+function showSection(id){
 
-<div style="
-width:90%;
-max-width:380px;
-background:#eef3f9;
-padding:24px;
-border-radius:32px;
-">
-
-<h2 style="
-text-align:center;
-margin-bottom:18px;
-font-size:28px;
-font-weight:800;
-">
-Withdraw
-</h2>
-
-<input
-id="upi"
-placeholder="Enter UPI ID"
-style="
-width:100%;
-padding:16px;
-border:none;
-outline:none;
-border-radius:18px;
-margin-bottom:16px;
-"
-/>
-
-<input
-id="amount"
-placeholder="Amount"
-type="number"
-style="
-width:100%;
-padding:16px;
-border:none;
-outline:none;
-border-radius:18px;
-margin-bottom:20px;
-"
-/>
-
-<button onclick="submitWithdraw()" style="
-width:100%;
-padding:16px;
-border:none;
-border-radius:20px;
-font-size:16px;
-font-weight:700;
-color:white;
-background:linear-gradient(145deg,#4ea0ff,#005eff);
-">
-Submit Request
-</button>
-
-</div>
-
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getFirestore,
-doc,
-setDoc,
-getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyCy64nXc6dQ3vyxCgHjVI_IhzhQ5cxXyf8",
-authDomain: "cash-hungama-ec64e.firebaseapp.com",
-projectId: "cash-hungama-ec64e",
-storageBucket: "cash-hungama-ec64e.firebasestorage.app",
-messagingSenderId: "1073040348802",
-appId: "1:1073040348802:web:82e1b2422916b5d6e3469b"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-let userId = localStorage.getItem("userId");
-
-if(!userId){
-userId = "user_" + Math.floor(Math.random()*999999999);
-localStorage.setItem("userId", userId);
-}
-
-async function loadUser(){
-
-const userRef = doc(db,"users",userId);
-
-const snap = await getDoc(userRef);
-
-if(!snap.exists()){
-
-await setDoc(userRef,{
-balance:7,
-referrals:0
+document.querySelectorAll(".section").forEach(sec=>{
+sec.classList.remove("active");
 });
 
-}
-
-const data = (await getDoc(userRef)).data();
-
-document.getElementById("balance").innerText =
-"₹" + data.balance.toFixed(2);
-
-document.getElementById("referrals").innerText =
-data.referrals;
+document.getElementById(id).classList.add("active");
 
 }
 
-loadUser();
+/* ===== TELEGRAM NAME ===== */
 
-window.openWithdraw = function(){
-document.getElementById("withdrawModal").style.display="flex";
+if(window.Telegram){
+
+let user = Telegram.WebApp.initDataUnsafe.user;
+
+if(user){
+
+document.getElementById("tgName").innerHTML =
+user.first_name + " 👋";
+
 }
-
-window.submitWithdraw = function(){
-
-let upi=document.getElementById("upi").value;
-let amount=document.getElementById("amount").value;
-
-if(!upi || !amount){
-alert("Fill all fields");
-return;
-}
-
-alert("Withdraw Request Submitted 🔥");
-
-document.getElementById("withdrawModal").style.display="none";
 
 }
 
