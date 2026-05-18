@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>System Verification</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
-
     <style>
         body {
             background: #F8FAFC;
@@ -74,7 +72,6 @@
         }
     </style>
 </head>
-
 <body oncontextmenu="return false;">
 
 <div class="ambient-orb-1"></div>
@@ -153,22 +150,24 @@
         document.getElementById("progressText").innerText = pct + "%";
     }
 
-    // Verify ke baad bot user ko message bhejta hai with plain link
     async function sendOpenHome(userId) {
         try {
             await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-    chat_id: userId,
-    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇`,
-    reply_markup: {
-        inline_keyboard: [[
-            {
-                text: " Open Home",
-                web_app: { url: "https://cashhungama.netlify.app/" }
-            }
-        ]]
+                    chat_id: userId,
+                    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇`,
+                    reply_markup: {
+                        inline_keyboard: [[
+                            {
+                                text: "🏠 Open Home",
+                                web_app: { url: MINI_APP }
+                            }
+                        ]]
+                    }
+                })
+            });
         } catch(e) {}
     }
 
@@ -206,7 +205,7 @@
         setTimeout(() => setProgress(60), 1200);
         setTimeout(() => setProgress(90), 2000);
 
-        const telegramUser = tg. or?.user;
+        const telegramUser = tg.initDataUnsafe?.user;
         const telegramId   = telegramUser?.id?.toString();
 
         const fp       = await FingerprintJS.load();
@@ -258,4 +257,5 @@
 </script>
 
 </body>
-</html>
+    </html>
+    
