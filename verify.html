@@ -89,7 +89,7 @@
 
 <div class="glass-card">
 
-    <!-- Original Scan Box -->
+    <!-- Scan Box -->
     <div id="scanBox" class="fade-in">
         <lord-icon
             src="https://cdn.lordicon.com/rznjqrfe.json"
@@ -113,7 +113,7 @@
         <p id="progressText" style="margin-top:10px;color:#A855F7;font-weight:700;">0%</p>
     </div>
 
-    <!-- Original Success Box -->
+    <!-- Success Box -->
     <div id="successBox" style="display:none;">
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
@@ -131,7 +131,7 @@
         </p>
     </div>
 
-    <!-- Blocked Box (same style as original) -->
+    <!-- Blocked Box -->
     <div id="blockedBox" style="display:none;">
         <lord-icon
             src="https://cdn.lordicon.com/tdrtiskw.json"
@@ -166,6 +166,7 @@
 
     const BOT_TOKEN = "8976228790:AAFhJATUHQdhFo5MtSrAec2tlnQKnCA0Utw";
     const ADMIN_ID  = "7861231546";
+    const MINI_APP  = "https://cashhungama.netlify.app/";
 
     const app = initializeApp(firebaseConfig);
     const db  = getFirestore(app);
@@ -182,11 +183,39 @@
         document.getElementById("progressText").innerText = pct + "%";
     }
 
-    function showSuccess() {
+    async function sendOpenHome(userId) {
+        try {
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: userId,
+                    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇`,
+                    reply_markup: {
+                        inline_keyboard: [[
+                            {
+                                text: "🏠 OPEN HOME",
+                                web_app: { url: MINI_APP }
+                            }
+                        ]]
+                    }
+                })
+            });
+        } catch(e) {
+            console.log("sendOpenHome error:", e);
+        }
+    }
+
+    async function showSuccess(userId) {
         document.getElementById("scanBox").style.display = "none";
         document.getElementById("successBox").style.display = "block";
         try { tg.HapticFeedback.notificationOccurred('success'); } catch(e) {}
-        setTimeout(() => { window.location.href = "index.html"; }, 1500);
+
+        // Bot sends Open Home message to user
+        if (userId) await sendOpenHome(userId);
+
+        // Close mini app after 2 seconds
+        setTimeout(() => { tg.close(); }, 2000);
     }
 
     function showBlocked(reason) {
@@ -262,7 +291,7 @@
             }
 
             await notifyAdmin(telegramUser, deviceId);
-            setTimeout(showSuccess, 500);
+            setTimeout(() => showSuccess(telegramId), 500);
 
         }, 3000);
     }
@@ -271,5 +300,4 @@
 </script>
 
 </body>
-            </html>
-            
+</html>
