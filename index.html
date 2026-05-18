@@ -189,7 +189,7 @@ TOTAL BALANCE
 <div class="inner p-5 text-center mb-4">
 
 <h2 class="text-5xl font-black text-slate-800" id="balance">
-₹7.00
+<span id="bonus-amount">+₹7.00</span>
 </h2>
 
 </div>
@@ -262,7 +262,7 @@ PER INVITE
 </p>
 
 <h3 class="text-3xl font-black">
-₹3
+3₹
 </h3>
 
 </div>
@@ -330,7 +330,7 @@ Bonus
 </p>
 
 <p class="text-[10px] uppercase tracking-[2px] text-slate-500 font-bold">
-16 MAY 2026
+<p id="bonus-date"></p>
 </p>
 
 </div>
@@ -338,7 +338,7 @@ Bonus
 </div>
 
 <div class="text-lg font-black text-green-600">
-+₹7.00
+<span id="bonus-amount">+₹7.00</span>
 </div>
 
 </div>
@@ -473,5 +473,26 @@ const user = tg.initDataUnsafe.user;
 document.getElementById("username").innerText =
 (user?.first_name || "User") + " 👋";
 </script>
+  <script>
+let bonusGiven = localStorage.getItem("bonusGiven");
+
+if (!bonusGiven) {
+
+  localStorage.setItem("bonusGiven", "true");
+
+  const now = new Date();
+
+  const formattedDate =
+    now.getDate() + " " +
+    now.toLocaleString('en-US', { month: 'short' }).toUpperCase() +
+    " " +
+    now.getFullYear();
+
+  localStorage.setItem("bonusDate", formattedDate);
+}
+
+document.getElementById("bonus-date").innerText =
+localStorage.getItem("bonusDate");
+  </script>
 </body>
 </html>
