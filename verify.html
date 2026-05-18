@@ -6,95 +6,79 @@
     <title>System Verification</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
 
     <style>
-
-        body{
-            background:#F8FAFC;
-            font-family:'Outfit',sans-serif;
-            overflow:hidden;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            min-height:100vh;
-            user-select:none;
-            -webkit-user-select:none;
+        body {
+            background: #F8FAFC;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .ambient-orb-1{
-            position:fixed;
-            top:-10%;
-            left:-20%;
-            width:400px;
-            height:400px;
-            background:radial-gradient(circle,rgba(168,85,247,.15)0%,rgba(255,255,255,0)70%);
-            animation:floatOrb 8s ease-in-out infinite alternate;
+        .ambient-orb-1 {
+            position: fixed;
+            top: -10%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(168,85,247,.15) 0%, rgba(255,255,255,0) 70%);
+            animation: floatOrb 8s ease-in-out infinite alternate;
         }
 
-        .ambient-orb-2{
-            position:fixed;
-            bottom:10%;
-            right:-20%;
-            width:500px;
-            height:500px;
-            background:radial-gradient(circle,rgba(236,72,153,.15)0%,rgba(255,255,255,0)70%);
-            animation:floatOrb 10s ease-in-out infinite alternate-reverse;
+        .ambient-orb-2 {
+            position: fixed;
+            bottom: 10%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236,72,153,.15) 0%, rgba(255,255,255,0) 70%);
+            animation: floatOrb 10s ease-in-out infinite alternate-reverse;
         }
 
-        @keyframes floatOrb{
-            0%{transform:translateY(0) scale(1);}
-            100%{transform:translateY(-40px) scale(1.1);}
+        @keyframes floatOrb {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-40px) scale(1.1); }
         }
 
-        .glass-card{
-            background:rgba(255,255,255,.95);
-            backdrop-filter:blur(20px);
-            border:1px solid rgba(226,232,240,1);
-            box-shadow:0 10px 40px -10px rgba(0,0,0,.08);
-            border-radius:2rem;
-            padding:2.5rem 2rem;
-            text-align:center;
-            width:90%;
-            max-width:350px;
-            position:relative;
-            z-index:10;
-            transform:scale(.95);
-            opacity:0;
-            animation:popIn .5s cubic-bezier(.175,.885,.32,1.275) forwards;
+        .glass-card {
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226,232,240,1);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,.08);
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+            position: relative;
+            z-index: 10;
+            transform: scale(.95);
+            opacity: 0;
+            animation: popIn .5s cubic-bezier(.175,.885,.32,1.275) forwards;
         }
 
-        @keyframes popIn{
-            to{
-                transform:scale(1);
-                opacity:1;
-            }
+        @keyframes popIn {
+            to { transform: scale(1); opacity: 1; }
         }
 
-        .fade-in{
-            animation:fadeIn .4s ease forwards;
+        .fade-in {
+            animation: fadeIn .4s ease forwards;
         }
 
-        @keyframes fadeIn{
-            from{
-                opacity:0;
-                transform:translateY(10px);
-            }
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
     </style>
 </head>
 
@@ -105,8 +89,8 @@
 
 <div class="glass-card">
 
+    <!-- Original Scan Box -->
     <div id="scanBox" class="fade-in">
-
         <lord-icon
             src="https://cdn.lordicon.com/rznjqrfe.json"
             trigger="loop"
@@ -123,27 +107,14 @@
         </p>
 
         <div style="width:100%;height:12px;background:#E2E8F0;border-radius:50px;margin-top:20px;overflow:hidden;">
-
-            <div id="progressBar"
-                style="
-                width:0%;
-                height:100%;
-                border-radius:50px;
-                background:linear-gradient(90deg,#A855F7,#EC4899);
-                transition:1s;">
-            </div>
-
+            <div id="progressBar" style="width:0%;height:100%;border-radius:50px;background:linear-gradient(90deg,#A855F7,#EC4899);transition:1s;"></div>
         </div>
 
-        <p id="progressText"
-        style="margin-top:10px;color:#A855F7;font-weight:700;">
-            0%
-        </p>
-
+        <p id="progressText" style="margin-top:10px;color:#A855F7;font-weight:700;">0%</p>
     </div>
 
+    <!-- Original Success Box -->
     <div id="successBox" style="display:none;">
-
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
             trigger="in"
@@ -158,82 +129,147 @@
         <p style="margin-top:10px;color:#64748B;">
             Device verified successfully
         </p>
+    </div>
 
+    <!-- Blocked Box (same style as original) -->
+    <div id="blockedBox" style="display:none;">
+        <lord-icon
+            src="https://cdn.lordicon.com/tdrtiskw.json"
+            trigger="in"
+            colors="primary:#ef4444,secondary:#f87171"
+            style="width:100px;height:100px">
+        </lord-icon>
+
+        <h2 style="font-size:28px;font-weight:900;color:#EF4444;">
+            Access Denied
+        </h2>
+
+        <p id="blockedReason" style="margin-top:10px;color:#64748B;">
+            This device is already verified.
+        </p>
     </div>
 
 </div>
 
-<script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const tg = window.Telegram.WebApp;
-tg.expand();
+    const firebaseConfig = {
+        apiKey: "AIzaSyCy64nXc6dQ3vyxCgHjVI_IhzhQ5cxXyf8",
+        authDomain: "cash-hungama-ec64e.firebaseapp.com",
+        projectId: "cash-hungama-ec64e",
+        storageBucket: "cash-hungama-ec64e.firebasestorage.app",
+        messagingSenderId: "1073040348802",
+        appId: "1:1073040348802:web:82e1b2422916b5d6e3469b"
+    };
 
-document.onkeydown = function(e){
+    const BOT_TOKEN = "8976228790:AAFhJATUHQdhFo5MtSrAec2tlnQKnCA0Utw";
+    const ADMIN_ID  = "7861231546";
 
-    if(e.keyCode == 123){
-        return false;
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+    const tg  = window.Telegram.WebApp;
+    tg.expand();
+
+    document.onkeydown = e => {
+        if (e.keyCode == 123) return false;
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+    };
+
+    function setProgress(pct) {
+        document.getElementById("progressBar").style.width = pct + "%";
+        document.getElementById("progressText").innerText = pct + "%";
     }
 
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
-        return false;
+    function showSuccess() {
+        document.getElementById("scanBox").style.display = "none";
+        document.getElementById("successBox").style.display = "block";
+        try { tg.HapticFeedback.notificationOccurred('success'); } catch(e) {}
+        setTimeout(() => { window.location.href = "index.html"; }, 1500);
     }
 
-};
+    function showBlocked(reason) {
+        document.getElementById("scanBox").style.display = "none";
+        document.getElementById("blockedBox").style.display = "block";
+        document.getElementById("blockedReason").innerText = reason;
+        try { tg.HapticFeedback.notificationOccurred('error'); } catch(e) {}
+    }
 
-async function startVerification(){
+    async function notifyAdmin(user, deviceId) {
+        const name     = user?.first_name || "Unknown";
+        const username = user?.username ? "@" + user.username : "No username";
+        const uid      = user?.id || "Unknown";
+        const msg = `✅ *New Verified User!*\n\n👤 Name: ${name}\n🔗 Username: ${username}\n🆔 Telegram ID: ${uid}\n📱 Device: \`${deviceId.substring(0,12)}...\`\n⏰ ${new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})}`;
+        try {
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: ADMIN_ID, text: msg, parse_mode: "Markdown" })
+            });
+        } catch(e) {}
+    }
 
-    const progressBar = document.getElementById("progressBar");
-    const progressText = document.getElementById("progressText");
+    async function startVerification() {
 
-    setTimeout(()=>{
-        progressBar.style.width = "30%";
-        progressText.innerText = "30%";
-    },500);
+        setTimeout(() => setProgress(30), 500);
+        setTimeout(() => setProgress(60), 1200);
+        setTimeout(() => setProgress(90), 2000);
 
-    setTimeout(()=>{
-        progressBar.style.width = "60%";
-        progressText.innerText = "60%";
-    },1200);
+        const telegramUser = tg.initDataUnsafe?.user;
+        const telegramId   = telegramUser?.id?.toString();
 
-    setTimeout(()=>{
-        progressBar.style.width = "90%";
-        progressText.innerText = "90%";
-    },2000);
+        const fp       = await FingerprintJS.load();
+        const result   = await fp.get();
+        const deviceId = result.visitorId;
 
-    const fp = await FingerprintJS.load();
+        // Check device
+        const deviceSnap = await getDoc(doc(db, "verified_devices", deviceId));
+        if (deviceSnap.exists()) {
+            setTimeout(() => setProgress(100), 2800);
+            setTimeout(() => showBlocked("This device is already verified. One device per user only."), 3500);
+            return;
+        }
 
-    const result = await fp.get();
+        // Check Telegram user
+        if (telegramId) {
+            const userSnap = await getDoc(doc(db, "verified_users", telegramId));
+            if (userSnap.exists()) {
+                setTimeout(() => setProgress(100), 2800);
+                setTimeout(() => showBlocked("Your account is already verified on another device."), 3500);
+                return;
+            }
+        }
 
-    const visitorId = result.visitorId;
+        // Save & allow
+        setTimeout(async () => {
+            setProgress(100);
 
-    console.log("Device ID:",visitorId);
+            await setDoc(doc(db, "verified_devices", deviceId), {
+                deviceId,
+                telegramId: telegramId || "unknown",
+                telegramName: telegramUser?.first_name || "Unknown",
+                telegramUsername: telegramUser?.username || "",
+                verifiedAt: serverTimestamp()
+            });
 
-    setTimeout(()=>{
+            if (telegramId) {
+                await setDoc(doc(db, "verified_users", telegramId), {
+                    telegramId, deviceId,
+                    name: telegramUser?.first_name || "Unknown",
+                    verifiedAt: serverTimestamp()
+                });
+            }
 
-        progressBar.style.width = "100%";
-        progressText.innerText = "100%";
+            await notifyAdmin(telegramUser, deviceId);
+            setTimeout(showSuccess, 500);
 
-    },3000);
+        }, 3000);
+    }
 
-    setTimeout(()=>{
-
-        document.getElementById("scanBox").style.display="none";
-
-        document.getElementById("successBox").style.display="block";
-
-        tg.HapticFeedback.notificationOccurred('success');
-setTimeout(() => {
-
-    window.location.href = "index.html";
-
-}, 1500);
-    },4000);
-
-}
-
-startVerification();
-
+    startVerification();
 </script>
 
 </body>
-      </html>
+            </html>
+            
