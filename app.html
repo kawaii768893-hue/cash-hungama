@@ -227,7 +227,7 @@ Invite friends and earn ₹25 instantly for every successful referral.
 </p>
 
 <div class="ref-box">
-https://t.me/cashhungama_bot?start=728
+<input class="input" id="refLink" readonly>
 </div>
 
 <button class="main-btn" onclick="copyRef()">
@@ -348,6 +348,27 @@ popup.style.display="none";
 },6000);
 
 </script>
+<script>
+const tg = window.Telegram.WebApp;
+const user = tg.initDataUnsafe.user;
 
+if(user){
+  const refLink =
+    `https://t.me/cashhungama_bot?start=${user.id}`;
+
+  document.getElementById("refLink").value = refLink;
+}
+
+function copyRef() {
+  const copyText = document.getElementById("refLink");
+
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+
+  navigator.clipboard.writeText(copyText.value);
+
+  alert("Referral Link Copied!");
+}
+</script>
 </body>
 </html>
