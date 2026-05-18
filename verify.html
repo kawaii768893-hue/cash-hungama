@@ -24,7 +24,6 @@
             user-select: none;
             -webkit-user-select: none;
         }
-
         .ambient-orb-1 {
             position: fixed;
             top: -10%;
@@ -34,7 +33,6 @@
             background: radial-gradient(circle, rgba(168,85,247,.15) 0%, rgba(255,255,255,0) 70%);
             animation: floatOrb 8s ease-in-out infinite alternate;
         }
-
         .ambient-orb-2 {
             position: fixed;
             bottom: 10%;
@@ -44,12 +42,10 @@
             background: radial-gradient(circle, rgba(236,72,153,.15) 0%, rgba(255,255,255,0) 70%);
             animation: floatOrb 10s ease-in-out infinite alternate-reverse;
         }
-
         @keyframes floatOrb {
             0% { transform: translateY(0) scale(1); }
             100% { transform: translateY(-40px) scale(1.1); }
         }
-
         .glass-card {
             background: rgba(255,255,255,.95);
             backdrop-filter: blur(20px);
@@ -66,15 +62,12 @@
             opacity: 0;
             animation: popIn .5s cubic-bezier(.175,.885,.32,1.275) forwards;
         }
-
         @keyframes popIn {
             to { transform: scale(1); opacity: 1; }
         }
-
         .fade-in {
             animation: fadeIn .4s ease forwards;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -89,7 +82,6 @@
 
 <div class="glass-card">
 
-    <!-- Scan Box -->
     <div id="scanBox" class="fade-in">
         <lord-icon
             src="https://cdn.lordicon.com/rznjqrfe.json"
@@ -97,23 +89,14 @@
             colors="primary:#A855F7,secondary:#EC4899"
             style="width:100px;height:100px">
         </lord-icon>
-
-        <h2 style="font-size:28px;font-weight:900;margin-top:10px;">
-            System Scan
-        </h2>
-
-        <p style="color:#64748B;margin-top:10px;">
-            Verifying Device Fingerprint...
-        </p>
-
+        <h2 style="font-size:28px;font-weight:900;margin-top:10px;">System Scan</h2>
+        <p style="color:#64748B;margin-top:10px;">Verifying Device Fingerprint...</p>
         <div style="width:100%;height:12px;background:#E2E8F0;border-radius:50px;margin-top:20px;overflow:hidden;">
             <div id="progressBar" style="width:0%;height:100%;border-radius:50px;background:linear-gradient(90deg,#A855F7,#EC4899);transition:1s;"></div>
         </div>
-
         <p id="progressText" style="margin-top:10px;color:#A855F7;font-weight:700;">0%</p>
     </div>
 
-    <!-- Success Box -->
     <div id="successBox" style="display:none;">
         <lord-icon
             src="https://cdn.lordicon.com/guqkthkk.json"
@@ -121,17 +104,10 @@
             colors="primary:#10b981,secondary:#34d399"
             style="width:100px;height:100px">
         </lord-icon>
-
-        <h2 style="font-size:28px;font-weight:900;color:#10B981;">
-            Access Granted
-        </h2>
-
-        <p style="margin-top:10px;color:#64748B;">
-            Device verified successfully
-        </p>
+        <h2 style="font-size:28px;font-weight:900;color:#10B981;">Access Granted</h2>
+        <p style="margin-top:10px;color:#64748B;">Device verified successfully</p>
     </div>
 
-    <!-- Blocked Box -->
     <div id="blockedBox" style="display:none;">
         <lord-icon
             src="https://cdn.lordicon.com/tdrtiskw.json"
@@ -139,14 +115,8 @@
             colors="primary:#ef4444,secondary:#f87171"
             style="width:100px;height:100px">
         </lord-icon>
-
-        <h2 style="font-size:28px;font-weight:900;color:#EF4444;">
-            Access Denied
-        </h2>
-
-        <p id="blockedReason" style="margin-top:10px;color:#64748B;">
-            This device is already verified.
-        </p>
+        <h2 style="font-size:28px;font-weight:900;color:#EF4444;">Access Denied</h2>
+        <p id="blockedReason" style="margin-top:10px;color:#64748B;">This device is already verified.</p>
     </div>
 
 </div>
@@ -183,6 +153,7 @@
         document.getElementById("progressText").innerText = pct + "%";
     }
 
+    // Verify ke baad bot user ko message bhejta hai with plain link
     async function sendOpenHome(userId) {
         try {
             await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -190,31 +161,17 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     chat_id: userId,
-                    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇`,
-                    reply_markup: {
-                        inline_keyboard: [[
-                            {
-                                text: "🏠 OPEN HOME",
-                                web_app: { url: MINI_APP }
-                            }
-                        ]]
-                    }
+                    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇\n\n${MINI_APP}`
                 })
             });
-        } catch(e) {
-            console.log("sendOpenHome error:", e);
-        }
+        } catch(e) {}
     }
 
     async function showSuccess(userId) {
         document.getElementById("scanBox").style.display = "none";
         document.getElementById("successBox").style.display = "block";
         try { tg.HapticFeedback.notificationOccurred('success'); } catch(e) {}
-
-        // Bot sends Open Home message to user
         if (userId) await sendOpenHome(userId);
-
-        // Close mini app after 2 seconds
         setTimeout(() => { tg.close(); }, 2000);
     }
 
@@ -240,7 +197,6 @@
     }
 
     async function startVerification() {
-
         setTimeout(() => setProgress(30), 500);
         setTimeout(() => setProgress(60), 1200);
         setTimeout(() => setProgress(90), 2000);
@@ -252,7 +208,6 @@
         const result   = await fp.get();
         const deviceId = result.visitorId;
 
-        // Check device
         const deviceSnap = await getDoc(doc(db, "verified_devices", deviceId));
         if (deviceSnap.exists()) {
             setTimeout(() => setProgress(100), 2800);
@@ -260,7 +215,6 @@
             return;
         }
 
-        // Check Telegram user
         if (telegramId) {
             const userSnap = await getDoc(doc(db, "verified_users", telegramId));
             if (userSnap.exists()) {
@@ -270,7 +224,6 @@
             }
         }
 
-        // Save & allow
         setTimeout(async () => {
             setProgress(100);
 
