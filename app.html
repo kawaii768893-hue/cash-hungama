@@ -370,5 +370,25 @@ function copyRef() {
   alert("Referral Link Copied!");
 }
 </script>
+<script>
+const tg = window.Telegram.WebApp;
+
+let userId = "guest";
+
+if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+    userId = tg.initDataUnsafe.user.id;
+}
+
+const refLink =
+    "https://t.me/cashhungama_bot?start=" + userId;
+
+document.getElementById("refLink").value = refLink;
+
+function copyRef() {
+    navigator.clipboard.writeText(refLink);
+    alert("Referral Link Copied!");
+}
+</script>
 </body>
 </html>
+
