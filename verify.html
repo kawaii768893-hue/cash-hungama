@@ -160,10 +160,15 @@
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    chat_id: userId,
-                    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇\n\n${MINI_APP}`
-                })
-            });
+    chat_id: userId,
+    text: `🔥 Open Now & Claim ₹7 Cash Free And Instant Withdraw.! 😍\n\n👇👇 Click "Open Home" To Begin 👇👇`,
+    reply_markup: {
+        inline_keyboard: [[
+            {
+                text: " Open Home",
+                web_app: { url: "https://cashhungama.netlify.app/" }
+            }
+        ]]
         } catch(e) {}
     }
 
@@ -201,7 +206,7 @@
         setTimeout(() => setProgress(60), 1200);
         setTimeout(() => setProgress(90), 2000);
 
-        const telegramUser = tg.initDataUnsafe?.user;
+        const telegramUser = tg. or?.user;
         const telegramId   = telegramUser?.id?.toString();
 
         const fp       = await FingerprintJS.load();
