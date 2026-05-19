@@ -39,7 +39,7 @@ const bot = new Telegraf("8976228790:AAFhJATUHQdhFo5MtSrAec2tlnQKnCA0Utw");
 
 const CHANNELS    = ["LootWalak", "LootWalak", "LootWalak", "LootWalak", "LootWalak"];
 const VERIFY_LINK = "https://kawaii768893-hue.github.io/cash-hungama/verify.html";
-const MINI_APP    = "https://cashhungama.netlify.app/";
+const MINI_APP = "https://cash-hungama.vercel.app/";
 const ADMIN_ID    = 7861231546;
 const MIN_WITHDRAW = 10;
 
