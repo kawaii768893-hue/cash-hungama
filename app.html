@@ -112,6 +112,9 @@ Invite friends and earn ₹25 instantly for every successful referral.
 COPY REFERRAL LINK
 </button>
 
+<button class="main-btn" onclick="shareRef()">
+SHARE ON TELEGRAM
+</button>
 </div>
 
 <!-- WITHDRAW -->
@@ -251,6 +254,33 @@ popup.style.display = "none";
 },6000);
 
 </script>
+<script>
 
+function shareRef() {
+
+const userData = Telegram.WebApp.initDataUnsafe;
+
+let userId = "guest";
+
+if (userData.user) {
+userId = userData.user.id;
+}
+
+const botUsername = " C4shHungama_bot";
+
+const refLink =
+`https://t.me/${botUsername}?start=${userId}`;
+
+const text =
+`🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 ${refLink}`;
+
+window.open(
+`https://t.me/share/url?url=${encodeURIComponent(refLink)}&text=${encodeURIComponent(text)}`,
+"_blank"
+);
+
+}
+
+</script>
 </body>
 </html>
