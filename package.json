@@ -1,0 +1,25 @@
+{
+  "name": "cash-hungama",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawaii768893-hue/cash-hungama.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kawaii768893-hue/cash-hungama/issues"
+  },
+  "homepage": "https://github.com/kawaii768893-hue/cash-hungama#readme",
+  "dependencies": {
+    "mongoose": "^9.6.2",
+    "telegraf": "^4.16.3"
+  }
+}
