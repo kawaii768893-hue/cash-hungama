@@ -256,31 +256,47 @@ popup.style.display = "none";
 </script>
 <script>
 
-function shareRef() {
+<script>
+const tg = window.Telegram.WebApp;
 
-const userData = Telegram.WebApp.initDataUnsafe;
+let userId = "786";
 
-let userId = "guest";
-
-if (userData.user) {
-userId = userData.user.id;
+if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+  userId = tg.initDataUnsafe.user.id;
 }
 
-const botUsername = " C4shHungama_bot";
+const botUsername = "C4shHungama_bot";
 
 const refLink =
-`https://t.me/${botUsername}?start=${userId}`;
+  "https://t.me/" + botUsername + "?start=" + userId;
 
-const text =
-`🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 ${refLink}`;
+document.getElementById("refLink").value = refLink;
 
-window.open(
-`https://t.me/share/url?url=${encodeURIComponent(refLink)}&text=${encodeURIComponent(text)}`,
-"_blank"
-);
+function copyRef() {
+  navigator.clipboard.writeText(refLink);
 
+  const popup = document.getElementById("popup");
+  popup.innerHTML = "Referral Link Copied!";
+  popup.style.display = "block";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
 }
 
+function shareOnTelegram() {
+
+  const text =
+    "🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 " + refLink;
+
+  const shareUrl =
+    "https://t.me/share/url?url=" +
+    encodeURIComponent(refLink) +
+    "&text=" +
+    encodeURIComponent(text);
+
+  window.open(shareUrl, "_blank");
+}
 </script>
 </body>
 </html>
