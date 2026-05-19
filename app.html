@@ -85,9 +85,12 @@ function copyRef() {
 
 function shareOnTelegram() {
   const text = "🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 " + refLink;
-  const shareUrl = "https://t.me/share/url?url=" + encodeURIComponent(refLink) + "&text=" + encodeURIComponent(text);
-  location.href = shareUrl;
+  Telegram.WebApp.close();
+  setTimeout(() => {
+    location.href = "https://t.me/share/url?url=" + encodeURIComponent(refLink) + "&text=" + encodeURIComponent(text);
+  }, 300);
 }
+
 </script>
 
 </body>
