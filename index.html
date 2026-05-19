@@ -472,6 +472,9 @@ const user = tg.initDataUnsafe.user;
 
 document.getElementById("username").innerText =
 (user?.first_name || "User") + " 👋";
+const userId = user?.id || 728;
+const refLink = "https://t.me/cashhungama_bot?start=" + userId;
+document.getElementById("refLink").innerText = refLink;
 </script>
   <script>
 let bonusGiven = localStorage.getItem("bonusGiven");
