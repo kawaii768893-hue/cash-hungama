@@ -1,54 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>Cash Hungama</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
 
-body {
-  background: #0f0f0f;
-  color: white;
-  font-family: sans-serif;
-  margin: 0;
-  padding: 20px;
+body{
+background:linear-gradient(135deg,#f1f5f9 0%,#cbd5e1 100%);
+font-family:'Outfit',sans-serif;
+color:#1E293B;
+overflow-x:hidden;
+min-height:100vh;
+padding-bottom:40px;
 }
 
-h2 {
-  text-align: center;
+.glossy-card{
+background:linear-gradient(180deg,#ffffff 0%,#e2e8f0 100%);
+border:1px solid #fff;
+box-shadow:
+0 15px 35px -5px rgba(15,23,42,.15),
+0 5px 15px rgba(0,0,0,.05),
+inset 0 2px 0 rgba(255,255,255,1),
+inset 0 -2px 0 rgba(203,213,225,.6);
+border-radius:2rem;
 }
 
-p {
-  text-align: center;
-  color: #aaa;
+.inset-screen{
+background:linear-gradient(180deg,#e2e8f0 0%,#f8fafc 100%);
+box-shadow:inset 0 6px 12px rgba(15,23,42,.1),0 1px 0 rgba(255,255,255,1);
+border:1px solid #cbd5e1;
+border-top-color:#94a3b8;
 }
 
-.input {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  margin-top: 10px;
-  background: #1e1e1e;
-  color: white;
-  box-sizing: border-box;
-  font-size: 15px;
+.btn-3d-blue{
+background:linear-gradient(180deg,#60a5fa 0%,#2563eb 100%);
+border:1px solid #1e3a8a;
+box-shadow:
+0 8px 15px rgba(37,99,235,.4),
+inset 0 2px 0 rgba(255,255,255,.4),
+inset 0 -3px 0 rgba(30,58,138,.5);
+color:white;
+transition:.15s;
 }
 
-.main-btn {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 12px;
-  background: #00c853;
-  color: white;
-  font-size: 18px;
-  margin-top: 15px;
-  cursor: pointer;
+.btn-3d-blue:active{
+transform:translateY(3px);
 }
 
-.main-btn:active {
-  opacity: 0.8;
+.btn-3d-dark{
+background:linear-gradient(180deg,#475569 0%,#0f172a 100%);
+border:1px solid #000;
+box-shadow:
+0 8px 15px rgba(15,23,42,.4),
+inset 0 2px 0 rgba(255,255,255,.2),
+inset 0 -3px 0 rgba(0,0,0,.8);
+color:white;
+}
+
+.btn-3d-dark:active{
+transform:translateY(3px);
+}
+
+.btn-3d-silver{
+background:linear-gradient(180deg,#ffffff 0%,#cbd5e1 100%);
+border:1px solid #94a3b8;
+box-shadow:
+0 6px 12px rgba(15,23,42,.1),
+inset 0 2px 0 rgba(255,255,255,1),
+inset 0 -3px 0 rgba(148,163,184,.6);
+color:#475569;
+transition:.15s;
+}
+
+.active-tab{
+transform:translateY(2px);
+background:linear-gradient(180deg,#e2e8f0 0%,#cbd5e1 100%);
+}
+
+.tab-content{
+display:none;
+animation:pop .3s ease;
+}
+
+.tab-content.active{
+display:block;
+}
+
+@keyframes pop{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.toast-visible{
+opacity:1!important;
+transform:translate(-50%,0)!important;
 }
 
 </style>
@@ -56,39 +118,318 @@ p {
 
 <body>
 
-<h2>👥 Refer & Earn</h2>
-<p>Invite friends and earn ₹3 instantly for every successful referral.</p>
+<div id="toast"
+class="fixed bottom-8 left-1/2 transform -translate-x-1/2 translate-y-4 bg-slate-800 text-white px-6 py-3 rounded-full font-black text-sm opacity-0 transition-all duration-300 z-50">
+<span id="toast-msg">Copied!</span>
+</div>
 
-<input class="input" id="refLink" readonly>
+<div class="p-5 max-w-md mx-auto">
 
-<button class="main-btn" onclick="copyRef()">📋 COPY REFERRAL LINK</button>
-<button class="main-btn" onclick="shareOnTelegram()">📤 SHARE ON TELEGRAM</button>
+<div class="flex items-center justify-between mb-6">
+
+<div>
+<p class="text-xs font-black text-slate-400 uppercase mb-1">
+Welcome Back
+</p>
+
+<h1 class="text-3xl font-black text-slate-800">
+Kaito 👋
+</h1>
+</div>
+
+<div class="w-14 h-14 rounded-full glossy-card flex items-center justify-center">
+<i class="fa-solid fa-user text-blue-500 text-2xl"></i>
+</div>
+
+</div>
+
+<div class="glossy-card p-6 mb-8">
+
+<p class="text-xs font-black uppercase text-slate-500 mb-3">
+TOTAL BALANCE
+</p>
+
+<div class="inset-screen p-5 rounded-2xl text-center mb-4">
+
+<h2 class="text-5xl font-black text-slate-800">
+₹7.00
+</h2>
+
+</div>
+
+<div class="flex justify-center gap-3">
+
+<span class="inset-screen px-3 py-1 rounded-lg text-[10px] font-black text-blue-600">
+Instant Payment
+</span>
+
+<span class="inset-screen px-3 py-1 rounded-lg text-[10px] font-black text-red-500">
+Love India
+</span>
+
+</div>
+
+</div>
+
+<div class="inset-screen p-2 rounded-2xl flex justify-between mb-8">
+
+<button onclick="switchTab('refer')"
+id="btn-refer"
+class="btn-3d-silver active-tab w-1/3 py-3 rounded-xl text-xs font-black">
+REFER
+</button>
+
+<button onclick="switchTab('history')"
+id="btn-history"
+class="btn-3d-silver w-1/3 py-3 rounded-xl text-xs font-black mx-2">
+HISTORY
+</button>
+
+<button onclick="switchTab('withdraw')"
+id="btn-withdraw"
+class="btn-3d-silver w-1/3 py-3 rounded-xl text-xs font-black">
+PAYOUT
+</button>
+
+</div>
+
+<div id="tab-refer" class="tab-content active">
+
+<div class="grid grid-cols-2 gap-4 mb-6">
+
+<div class="glossy-card p-5 text-center">
+
+<i class="fa-solid fa-users text-blue-500 text-2xl mb-3"></i>
+
+<p class="text-xs font-black text-slate-500 uppercase">
+Total Referrals
+</p>
+
+<h3 class="text-3xl font-black text-slate-800">
+0
+</h3>
+
+</div>
+
+<div class="glossy-card p-5 text-center">
+
+<i class="fa-solid fa-gift text-red-500 text-2xl mb-3"></i>
+
+<p class="text-xs font-black text-slate-500 uppercase">
+Per Invite
+</p>
+
+<h3 class="text-3xl font-black text-slate-800">
+₹3.00
+</h3>
+
+</div>
+
+</div>
+
+<div class="glossy-card p-6 text-center">
+
+<h3 class="font-black text-slate-800 text-xl mb-2">
+Invite & Earn
+</h3>
+
+<p class="text-sm text-slate-600 mb-6">
+Share your link and earn ₹3 instantly.
+</p>
+
+<div class="inset-screen p-3 rounded-xl flex items-center justify-between mb-6">
+
+<code id="ref-link"
+class="text-xs text-slate-600 font-bold truncate pr-3">
+Loading...
+</code>
+
+<button onclick="copyRef()"
+class="btn-3d-blue w-10 h-10 rounded-lg flex items-center justify-center">
+
+<i class="fa-regular fa-copy"></i>
+
+</button>
+
+</div>
+
+<button onclick="shareLink()"
+class="w-full btn-3d-dark py-4 rounded-xl font-black uppercase text-xs">
+
+SHARE ON TELEGRAM
+
+</button>
+
+</div>
+
+</div>
+
+<div id="tab-history" class="tab-content">
+
+<div class="glossy-card p-6">
+
+<h3 class="font-black text-slate-800 text-lg mb-5">
+Recent Activity
+</h3>
+
+<div class="space-y-4">
+
+<div class="flex justify-between items-center inset-screen rounded-2xl p-4">
+
+<div>
+
+<p class="font-black text-sm text-slate-800">
+Bonus
+</p>
+
+<p class="text-[10px] text-slate-500">
+16 MAY 2026
+</p>
+
+</div>
+
+<p class="font-black text-emerald-600 text-lg">
++₹7.00
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="tab-withdraw" class="tab-content">
+
+<div class="glossy-card p-8 text-center">
+
+<i class="fa-solid fa-bolt text-red-500 text-4xl mb-5"></i>
+
+<h3 class="font-black text-slate-800 text-2xl mb-2">
+Flash Withdraw
+</h3>
+
+<p class="text-xs text-slate-500 mb-8">
+Instantly transfer to UPI
+</p>
+
+<div class="inset-screen rounded-2xl p-5 mb-8 text-left space-y-4">
+
+<div class="flex justify-between">
+<span class="text-xs font-black text-slate-500">
+Minimum
+</span>
+
+<span class="font-black text-slate-800">
+₹10.00
+</span>
+</div>
+
+<div class="flex justify-between">
+<span class="text-xs font-black text-slate-500">
+Speed
+</span>
+
+<span class="font-black text-slate-800">
+Instant
+</span>
+</div>
+
+</div>
+
+<button onclick="goToWithdrawBot()"
+class="w-full btn-3d-blue py-5 rounded-xl font-black uppercase text-xs">
+
+OPEN WITHDRAW PANEL
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 <script>
+
 const tg = window.Telegram.WebApp;
+
+tg.ready();
 tg.expand();
 
-let userId = "786";
-if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-  userId = tg.initDataUnsafe.user.id;
+let userId = "guest";
+
+if(tg.initDataUnsafe && tg.initDataUnsafe.user){
+userId = tg.initDataUnsafe.user.id;
 }
 
 const botUsername = "C4shHungama_bot";
-const refLink = "https://t.me/" + botUsername + "?start=" + userId;
 
-document.getElementById("refLink").value = refLink;
+const referralLink =
+`https://t.me/${botUsername}?start=${userId}`;
 
-function copyRef() {
-  navigator.clipboard.writeText(refLink);
-  alert("✅ Referral Link Copied!");
+document.getElementById('ref-link').innerText =
+referralLink;
+
+function showToast(message){
+
+const toast =
+document.getElementById('toast');
+
+document.getElementById('toast-msg').innerText =
+message;
+
+toast.classList.add('toast-visible');
+
+setTimeout(()=>{
+toast.classList.remove('toast-visible');
+},2500);
+
 }
 
-function shareOnTelegram() {
-  const text = "🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 " + refLink;
-  Telegram.WebApp.close();
-  setTimeout(() => {
-    location.href = "https://t.me/share/url?url=" + encodeURIComponent(refLink) + "&text=" + encodeURIComponent(text);
-  }, 300);
+function switchTab(tab){
+
+document.querySelectorAll('.tab-content')
+.forEach(el=>el.classList.remove('active'));
+
+document.getElementById('tab-'+tab)
+.classList.add('active');
+
+document.querySelectorAll('.btn-3d-silver')
+.forEach(el=>el.classList.remove('active-tab'));
+
+document.getElementById('btn-'+tab)
+.classList.add('active-tab');
+
+}
+
+function copyRef(){
+
+navigator.clipboard.writeText(referralLink);
+
+showToast("Referral link copied!");
+
+}
+
+function shareLink(){
+
+const text =
+`🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 ${referralLink}`;
+
+window.open(
+`https://t.me/share/url?url=${encodeURIComponent(referralLink)}&text=${encodeURIComponent(text)}`,
+"_blank"
+);
+
+}
+
+function goToWithdrawBot(){
+
+tg.openTelegramLink(
+'https://t.me/C4shWithdraw_bot'
+);
+
 }
 
 </script>
