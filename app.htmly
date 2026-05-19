@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash Hungama</title>
+<style>
+
+body {
+  background: #0f0f0f;
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: #aaa;
+}
+
+.input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: #1e1e1e;
+  color: white;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #00c853;
+  color: white;
+  font-size: 18px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.main-btn:active {
+  opacity: 0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>👥 Refer & Earn</h2>
+<p>Invite friends and earn ₹3 instantly for every successful referral.</p>
+
+<input class="input" id="refLink" readonly>
+
+<button class="main-btn" onclick="copyRef()">📋 COPY REFERRAL LINK</button>
+<button class="main-btn" onclick="shareOnTelegram()">📤 SHARE ON TELEGRAM</button>
+
+<script>
+const tg = window.Telegram.WebApp;
+tg.expand();
+
+let userId = "786";
+if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+  userId = tg.initDataUnsafe.user.id;
+}
+
+const botUsername = "C4shHungama_bot";
+const refLink = "https://t.me/" + botUsername + "?start=" + userId;
+
+document.getElementById("refLink").value = refLink;
+
+function copyRef() {
+  navigator.clipboard.writeText(refLink);
+  alert("✅ Referral Link Copied!");
+}
+
+function shareOnTelegram() {
+  const text = "🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 " + refLink;
+  const shareUrl = "https://t.me/share/url?url=" + encodeURIComponent(refLink) + "&text=" + encodeURIComponent(text);
+tg.openLink(shareUrl);
+}
+</script>
+
+</body>
+</html>
