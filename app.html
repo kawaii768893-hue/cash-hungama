@@ -3,88 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cash Hungama</title>
-
 <style>
 
-body{
-background:#0f0f0f;
-color:white;
-font-family:sans-serif;
-margin:0;
-padding:0;
+body {
+  background: #0f0f0f;
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
-.section{
-display:none;
-padding:20px;
+h2 {
+  text-align: center;
 }
 
-.active{
-display:block;
+p {
+  text-align: center;
+  color: #aaa;
 }
 
-.main-btn{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-background:#00c853;
-color:white;
-font-size:18px;
-margin-top:15px;
+.input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: #1e1e1e;
+  color: white;
+  box-sizing: border-box;
+  font-size: 15px;
 }
 
-.input{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-margin-top:10px;
-background:#1e1e1e;
-color:white;
+.main-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #00c853;
+  color: white;
+  font-size: 18px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
-.ref-box{
-margin-top:15px;
-}
-
-.bottom-nav{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:#111;
-padding:12px 0;
-}
-
-.nav-btn{
-color:white;
-font-size:15px;
-text-align:center;
-}
-
-.user-card{
-background:#1a1a1a;
-padding:14px;
-border-radius:12px;
-margin-top:10px;
-display:flex;
-justify-content:space-between;
-}
-
-.popup{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-background:#00c853;
-padding:12px 20px;
-border-radius:12px;
-display:none;
-z-index:999;
+.main-btn:active {
+  opacity: 0.8;
 }
 
 </style>
@@ -92,211 +56,39 @@ z-index:999;
 
 <body>
 
-<div class="popup" id="popup"></div>
-
-<!-- REFER -->
-
-<div class="section active" id="refer">
-
 <h2>👥 Refer & Earn</h2>
+<p>Invite friends and earn ₹3 instantly for every successful referral.</p>
 
-<p>
-Invite friends and earn ₹25 instantly for every successful referral.
-</p>
-
-<div class="ref-box">
 <input class="input" id="refLink" readonly>
-</div>
 
-<button class="main-btn" onclick="copyRef()">
-COPY REFERRAL LINK
-</button>
-
-<button class="main-btn" onclick="shareRef()">
-SHARE ON TELEGRAM
-</button>
-</div>
-
-<!-- WITHDRAW -->
-
-<div class="section" id="withdraw">
-
-<h2>💸 Withdraw Funds</h2>
-
-<input class="input" type="number" placeholder="Enter Amount">
-
-<input class="input" type="text" placeholder="Enter UPI / Number">
-
-<button class="main-btn" onclick="withdrawNow()">
-Withdraw Now
-</button>
-
-</div>
-
-<!-- TOP USERS -->
-
-<div class="section" id="top">
-
-<h2>🏆 Top Users</h2>
-
-<div class="user-card">
-<span>Rex</span>
-<span>₹720</span>
-</div>
-
-<div class="user-card">
-<span>Sahil</span>
-<span>₹510</span>
-</div>
-
-<div class="user-card">
-<span>Kaito</span>
-<span>₹350</span>
-</div>
-
-</div>
-
-<!-- BOTTOM NAV -->
-
-<div class="bottom-nav">
-
-<div class="nav-btn" onclick="showSection('refer')">
-🏠<br>Home
-</div>
-
-<div class="nav-btn" onclick="showSection('withdraw')">
-💸<br>Withdraw
-</div>
-
-<div class="nav-btn" onclick="showSection('top')">
-🏆<br>Top
-</div>
-
-</div>
+<button class="main-btn" onclick="copyRef()">📋 COPY REFERRAL LINK</button>
+<button class="main-btn" onclick="shareOnTelegram()">📤 SHARE ON TELEGRAM</button>
 
 <script>
-
 const tg = window.Telegram.WebApp;
-
 tg.expand();
 
-let userId = "guest";
-
-if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-userId = tg.initDataUnsafe.user.id;
-}
-
-const refLink =
-"https://t.me/cashhungama_bot?start=" + userId;
-
-document.getElementById("refLink").value = refLink;
-
-function copyRef() {
-
-let copyText =
-document.getElementById("refLink");
-
-copyText.removeAttribute("readonly");
-
-copyText.select();
-
-copyText.setSelectionRange(0, 99999);
-
-document.execCommand("copy");
-
-copyText.setAttribute("readonly", true);
-
-alert("Referral Link Copied!");
-
-}
-
-function showSection(id){
-
-document.querySelectorAll(".section")
-.forEach(sec => {
-sec.classList.remove("active");
-});
-
-document.getElementById(id)
-.classList.add("active");
-
-}
-
-function withdrawNow(){
-
-alert("Withdraw Request Sent!");
-
-}
-
-setInterval(() => {
-
-const popup =
-document.getElementById("popup");
-
-const names =
-["Rohit","Sahil","Aman","Rex","Kaito","Aryan"];
-
-const amount =
-Math.floor(Math.random()*90)+10;
-
-const randomName =
-names[Math.floor(Math.random()*names.length)];
-
-popup.innerHTML =
-`${randomName} earned ₹${amount}`;
-
-popup.style.display = "block";
-
-setTimeout(() => {
-popup.style.display = "none";
-},3000);
-
-},6000);
-
-</script>
-<script>
-
-<script>
-const tg = window.Telegram.WebApp;
-
 let userId = "786";
-
 if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
   userId = tg.initDataUnsafe.user.id;
 }
 
-const botUsername = "C4shHungama_bot";
-
-const refLink =
-  "https://t.me/" + botUsername + "?start=" + userId;
+const botUsername = "cashhungama_bot";
+const refLink = "https://t.me/" + botUsername + "?start=" + userId;
 
 document.getElementById("refLink").value = refLink;
 
 function copyRef() {
   navigator.clipboard.writeText(refLink);
-
-  const popup = document.getElementById("popup");
-  popup.innerHTML = "Referral Link Copied!";
-  popup.style.display = "block";
-
-  setTimeout(() => {
-    popup.style.display = "none";
-  }, 3000);
+  alert("✅ Referral Link Copied!");
 }
 
 function shareOnTelegram() {
-
-  const text =
-    "🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 " + refLink;
-
-  const shareUrl =
-    "https://t.me/share/url?url=" +
-    encodeURIComponent(refLink) +
-    "&text=" +
-    encodeURIComponent(text);
-
+  const text = "🎁 Hey! Join this awesome bot and get ₹7 FREE instantly 🚀!\n\n👉 " + refLink;
+  const shareUrl = "https://t.me/share/url?url=" + encodeURIComponent(refLink) + "&text=" + encodeURIComponent(text);
   window.open(shareUrl, "_blank");
 }
 </script>
+
 </body>
 </html>
